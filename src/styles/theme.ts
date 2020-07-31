@@ -1,7 +1,7 @@
 export default {
   colors: {
     primary: '#FF8700',
-    secundary: '#FF500F',
+    secondary: '#FF500F',
     grey: '#8C91A5',
     lightGrey: '#F5F6FA',
     darkGrey: '#6C757D',
