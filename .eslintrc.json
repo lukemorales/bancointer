@@ -69,6 +69,12 @@
         ],
         "alphabetize": { "order": "ignore", "ignoreCase": true }
       }
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
     ]
   },
   "settings": {
