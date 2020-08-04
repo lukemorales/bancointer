@@ -10,16 +10,18 @@
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "customize-cra": "^1.0.0",
     "react": "^16.13.1",
+    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "typescript": "~3.9.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
     "@types/styled-components": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
@@ -52,6 +55,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "react-refresh": "^0.8.3"
   }
 }
