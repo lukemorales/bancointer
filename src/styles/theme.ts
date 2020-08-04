@@ -22,6 +22,6 @@ export default {
     large: '2.4rem',
   },
   transition: {
-    defaut: '180ms ease-in-out',
+    default: '180ms ease-in-out',
   },
-};
+} as const;
