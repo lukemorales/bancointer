@@ -24,4 +24,9 @@ export default {
   transition: {
     default: '180ms ease-in-out',
   },
+  radius: {
+    default: '0.8rem',
+    small: '0.4rem',
+    tiny: '0.2rem',
+  },
 } as const;
