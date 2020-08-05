@@ -8109,6 +8109,13 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
+polished@^3.6.5:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.5.tgz#dbefdde64c675935ec55119fe2a2ab627ca82e9c"
+  integrity sha512-VwhC9MlhW7O5dg/z7k32dabcAFW1VI2+7fSe8cE/kXcfL7mVdoa5UxciYGW2sJU78ldDLT6+ROEKIZKFNTnUXQ==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 portfinder@^1.0.25:
   version "1.0.28"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -9091,6 +9098,13 @@ react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
+
+react-icons@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.10.0.tgz#6c217a2dde2e8fa8d293210023914b123f317297"
+  integrity sha512-WsQ5n1JToG9VixWilSo1bHv842Cj5aZqTGiS3Ud47myF6aK7S/IUY2+dHcBdmkQcCFRuHsJ9OMUI0kTDfjyZXQ==
+  dependencies:
+    camelcase "^5.0.0"
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
