@@ -10,7 +10,7 @@ export const Container = styled.header`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 100rem;
+  max-width: 113rem;
   height: 10.4rem;
   width: 100%;
   display: flex;
