@@ -26,6 +26,10 @@ export const Container = styled(Button)`
           align-items: center;
           border-radius: 50%;
           margin-right: 1.2rem;
+
+          svg {
+            stroke: ${theme.colors.primary};
+          }
         }
       }
 
