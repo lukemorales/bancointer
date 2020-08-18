@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import { Container, Wrapper } from './styles';
 import SideBar from './SideBar';
+import MainContent from './MainContent';
 
 const Dashboard: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Dashboard: React.FC = () => {
       <Container>
         <Wrapper>
           <SideBar />
+          <MainContent />
         </Wrapper>
       </Container>
     </>

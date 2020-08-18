@@ -29,4 +29,7 @@ export default {
     small: '0.4rem',
     tiny: '0.2rem',
   },
+  shadows: {
+    default: '0 0.5rem 2rem rgba(0, 0, 0, 0.08)',
+  },
 } as const;
