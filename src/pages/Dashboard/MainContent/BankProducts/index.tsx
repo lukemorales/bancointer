@@ -9,8 +9,8 @@ import {
   ShoppingButton,
   Products,
   ProductCard,
-  EquityButton,
-  LoanButton,
+  EquitySection,
+  LoanSection,
 } from './styles';
 import Button from '../../../../components/Button';
 import { bankProducts } from '../../../../resources';
@@ -39,7 +39,7 @@ const BankProducts: React.FC = () => {
         </Products>
       </div>
       <div>
-        <EquityButton background={colors.primaryDark}>
+        <EquitySection>
           <h3>Home Equity Banco Inter</h3>
           <div>
             <ul>
@@ -61,8 +61,8 @@ const BankProducts: React.FC = () => {
               Solicitar agora
             </Button>
           </div>
-        </EquityButton>
-        <LoanButton background={colors.secondary}>
+        </EquitySection>
+        <LoanSection>
           <h3>
             <span>Quer ficar livre dos juros altos?</span>
             Empréstimo Consignado, <br /> o crédito para o seu momento
@@ -83,7 +83,7 @@ const BankProducts: React.FC = () => {
               Solicitar agora
             </Button>
           </div>
-        </LoanButton>
+        </LoanSection>
       </div>
     </Container>
   );
