@@ -18,6 +18,7 @@ import {
 } from './styles';
 import { PlataformaPaiIcon } from '../../../../assets/images/icons';
 import CreditCardIllustration from '../../../../assets/images/illustrations/card-illustration.png';
+import { ReactComponent as HiddenData } from '../../../../assets/images/illustrations/hidden-data.svg';
 import Button from '../../../../components/Button';
 
 type ChartValue = number | React.ReactText | undefined;
@@ -58,8 +59,9 @@ const AccountSummary: React.FC = () => {
                 indexBy="month"
                 keys={['outcome', 'income']}
                 colors={({ id, data }) => data[`${id}Color`]}
-                margin={{ top: 0, right: -8, bottom: 20, left: -8 }}
-                padding={0.7}
+                margin={{ top: 8, right: -8, bottom: 24, left: -8 }}
+                padding={0.88}
+                borderRadius={2}
                 axisTop={null}
                 axisRight={null}
                 axisLeft={null}
@@ -72,7 +74,10 @@ const AccountSummary: React.FC = () => {
                   const label = chart.id === 'income' ? 'Receita' : 'Despesas';
                   const value = chart.data[chart.id];
                   return (
-                    <CustomTooltip rightArrow>
+                    <CustomTooltip
+                      rightArrow={chart.index >= 3}
+                      leftArrow={chart.index < 3}
+                    >
                       {`${label}: R$${value}`}
                     </CustomTooltip>
                   );
@@ -96,7 +101,9 @@ const AccountSummary: React.FC = () => {
                 enableGridY={false}
                 enableLabel={false}
               />
-            ) : null}
+            ) : (
+              <HiddenData />
+            )}
           </LeftData>
           <RightData>
             <span>Receita</span>
@@ -149,7 +156,7 @@ const AccountSummary: React.FC = () => {
                 enableArea
                 enableCrosshair={false}
                 curve="cardinal"
-                margin={{ top: 8, right: 8, bottom: 20, left: 8 }}
+                margin={{ top: 8, right: 8, bottom: 24, left: 12 }}
                 xScale={{ type: 'point' }}
                 yScale={{
                   type: 'linear',
@@ -181,7 +188,9 @@ const AccountSummary: React.FC = () => {
                 pointLabelYOffset={-12}
                 enableGridY={false}
               />
-            ) : null}
+            ) : (
+              <HiddenData />
+            )}
           </LeftData>
           <RightData>
             <span>Total investido</span>
