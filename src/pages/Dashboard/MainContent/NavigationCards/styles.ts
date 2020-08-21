@@ -30,11 +30,9 @@ export const Container = styled.div`
 `;
 
 export const Navigation = styled.nav`
-  ${() => css`
-    display: grid;
-    grid-template-columns: repeat(6, minmax(10.4rem, 1fr));
-    column-gap: 0.8rem;
-  `}
+  display: grid;
+  grid-template-columns: repeat(6, minmax(10.4rem, 1fr));
+  column-gap: 0.8rem;
 `;
 
 export const Card = styled(Button)`

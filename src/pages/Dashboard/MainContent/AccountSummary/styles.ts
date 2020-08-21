@@ -3,14 +3,12 @@ import styled, { css } from 'styled-components';
 import { Theme } from '../../../../styles/styled';
 
 export const Container = styled.section`
-  ${() => css`
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 2.4rem;
-    margin: 2.4rem 0;
-    max-height: 17.6rem;
-    height: 100%;
-  `}
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2.4rem;
+  margin: 2.4rem 0;
+  max-height: 17.6rem;
+  height: 100%;
 `;
 
 export const Card = styled.article`
@@ -31,7 +29,6 @@ export const Header = styled.div<{ iconStroke?: boolean }>`
   ${({ theme, iconStroke }) => css`
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 0.8rem;
 
     > svg {
       margin-right: 0.8rem;
@@ -70,7 +67,7 @@ export const LeftData = styled.div`
   ${({ theme }) => css`
     margin-right: 0.8rem;
     max-width: 55%;
-    max-height: 9.6rem;
+    max-height: 11.2rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -82,10 +79,16 @@ export const LeftData = styled.div`
       width: auto;
     }
 
-    svg text {
-      font-family: inherit !important;
-      font-size: ${theme.fontSizes.tiny} !important;
-      fill: ${theme.colors.grey} !important;
+    svg {
+      g rect {
+        stroke-width: 1.5;
+      }
+
+      text {
+        font-family: inherit !important;
+        font-size: ${theme.fontSizes.tiny} !important;
+        fill: ${theme.colors.grey} !important;
+      }
     }
   `}
 `;
@@ -125,8 +128,13 @@ export const DataValue = styled.div<DataValueType>`
   `}
 `;
 
-export const CustomTooltip = styled.div<{ rightArrow?: boolean }>`
-  ${({ theme, rightArrow }) => css`
+type CustomTooltipProps = {
+  rightArrow?: boolean;
+  leftArrow?: boolean;
+};
+
+export const CustomTooltip = styled.div<CustomTooltipProps>`
+  ${({ theme, rightArrow, leftArrow }) => css`
     background: ${theme.colors.lightGrey};
     padding: 0.4rem 0.8rem;
     border-radius: ${theme.radius.small};
@@ -138,15 +146,18 @@ export const CustomTooltip = styled.div<{ rightArrow?: boolean }>`
       content: '';
       display: block;
       height: 0;
-      left: ${rightArrow ? `100%` : `50%`};
+      left: ${rightArrow ? `100%` : (leftArrow && `2%`) || `50%`};
       bottom: -50%;
       position: absolute;
       transform: ${rightArrow
         ? `translate3d(0, -175%, 0)`
-        : `translate3d(-50%, 25%, 0)`};
+        : (leftArrow && `translate3d(-100%, -175%, 0)`) ||
+          `translate3d(-50%, 25%, 0)`};
       border-color: ${rightArrow
         ? `transparent transparent transparent ${theme.colors.lightGrey}`
-        : `${theme.colors.lightGrey} transparent transparent
+        : (leftArrow &&
+            `transparent ${theme.colors.lightGrey} transparent transparent`) ||
+          `${theme.colors.lightGrey} transparent transparent
         transparent`};
       border-style: solid;
       border-width: 0.8rem;
