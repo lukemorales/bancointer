@@ -1,6 +1,7 @@
 export default {
   colors: {
     primary: '#FF8700',
+    primaryDark: '#FF7A00',
     secondary: '#FF500F',
     grey: '#8C91A5',
     lightGrey: '#F5F6FA',
@@ -8,6 +9,7 @@ export default {
     success: '#20C05C',
     error: '#FD4F48',
     background: '#fff',
+    yellow: '#FFED00',
   },
   fontSizes: {
     default: '1.4rem',
@@ -31,5 +33,6 @@ export default {
   },
   shadows: {
     default: '0 0.5rem 2rem rgba(0, 0, 0, 0.08)',
+    flat: '0 0.2rem 0.2rem rgba(0, 0, 0, 0.08)',
   },
 } as const;
