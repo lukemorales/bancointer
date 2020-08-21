@@ -21,7 +21,7 @@ export const Card = styled.article`
     height: 100%;
     border-radius: ${theme.radius.default};
     padding: 1.6rem 2.4rem;
-    box-shadow: ${theme.shadows.default};
+    box-shadow: ${theme.shadows.flat};
     display: flex;
     flex-direction: column;
   `}
