@@ -56,11 +56,9 @@ export const ShoppingButton = styled(ButtonContainer)`
 `;
 
 export const Products = styled(Navigation)`
-  ${() => css`
-    flex-grow: 0;
-    grid-template-columns: repeat(5, minmax(6.4rem, 1fr));
-    margin: 0 -0.8rem 0 0.8rem;
-  `}
+  flex-grow: 0;
+  grid-template-columns: repeat(5, minmax(6.4rem, 1fr));
+  margin: 0 -0.8rem 0 0.8rem;
 `;
 
 export const ProductCard = styled(Card)`
@@ -88,7 +86,7 @@ export const ProductCard = styled(Card)`
   `}
 `;
 
-export const EquityButton = styled(ButtonContainer)`
+export const EquitySection = styled.section`
   ${({ theme }) => css`
     padding: 1.6rem 2.4rem;
     max-width: 38.4rem;
@@ -96,11 +94,12 @@ export const EquityButton = styled(ButtonContainer)`
     max-height: 18.4rem;
     height: 100%;
     color: ${theme.colors.yellow};
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     border-radius: ${theme.radius.default};
-    background-image: url(${ButtonBackground});
+    background: url(${ButtonBackground}), ${theme.colors.primaryDark};
 
     > h3 {
       font-size: ${theme.fontSizes.large};
@@ -136,9 +135,9 @@ export const EquityButton = styled(ButtonContainer)`
   `}
 `;
 
-export const LoanButton = styled(EquityButton)`
+export const LoanSection = styled(EquitySection)`
   ${({ theme }) => css`
-    background-image: none;
+    background: ${theme.colors.secondary};
 
     > h3 {
       text-align: left;
