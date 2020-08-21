@@ -4,13 +4,12 @@ import { transparentize } from 'polished';
 import { Wrapper as HeaderWrapper } from '../Header/styles';
 
 export const Container = styled.footer`
-  ${() => css`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  `}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3.2rem;
 `;
 
 export const Wrapper = styled(HeaderWrapper)`
@@ -42,6 +41,7 @@ export const Wrapper = styled(HeaderWrapper)`
 export const FooterSection = styled(Container)<{ background?: string }>`
   ${({ theme, background }) => css`
     background: ${background || transparentize(0.92, theme.colors.grey)};
+    margin-top: 0;
 
     :last-of-type {
       ${Wrapper} {
