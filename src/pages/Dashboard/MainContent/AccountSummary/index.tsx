@@ -20,6 +20,25 @@ import { PlataformaPaiIcon } from '../../../../assets/images/icons';
 import CreditCardIllustration from '../../../../assets/images/illustrations/card-illustration.png';
 import { ReactComponent as HiddenData } from '../../../../assets/images/illustrations/hidden-data.svg';
 import Button from '../../../../components/Button';
+import { DEFAULT_TRANSITION } from '../../../../constants';
+
+const containerAnimation = {
+  unMounted: { y: -50, opacity: 0 },
+  mounted: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      when: 'beforeChildren',
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const cardsAnimation = {
+  unMounted: { y: -25, opacity: 0 },
+  mounted: { y: 0, opacity: 1 },
+};
 
 type ChartValue = number | React.ReactText | undefined;
 
@@ -38,8 +57,13 @@ const AccountSummary: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <Container>
-      <Card>
+    <Container variants={containerAnimation}>
+      <Card
+        layout
+        key="statement"
+        variants={cardsAnimation}
+        transition={DEFAULT_TRANSITION}
+      >
         <Header iconStroke>
           <FiFileText />
           <h3>Extrato</h3>
@@ -117,7 +141,12 @@ const AccountSummary: React.FC = () => {
           </RightData>
         </DataWrapper>
       </Card>
-      <Card>
+      <Card
+        layout
+        key="credit-card"
+        variants={cardsAnimation}
+        transition={DEFAULT_TRANSITION}
+      >
         <Header iconStroke>
           <FiCreditCard />
           <h3>MasterCard 8430</h3>
@@ -135,7 +164,12 @@ const AccountSummary: React.FC = () => {
           </RightData>
         </DataWrapper>
       </Card>
-      <Card>
+      <Card
+        layout
+        key="investments"
+        variants={cardsAnimation}
+        transition={DEFAULT_TRANSITION}
+      >
         <Header iconStroke={false}>
           <PlataformaPaiIcon />
           <h3>Plataforma Aberta Inter</h3>
