@@ -7,11 +7,21 @@ import { sideBarNavigation } from '../../../resources';
 import Dropdown from './Dropdown';
 import AccountBalance from './AccountBalance';
 import HelpDesk from './HelpDesk';
+import { DEFAULT_TRANSITION } from '../../../constants';
+
+const animation = {
+  unMounted: { opacity: 0, y: -50 },
+  mounted: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.5, ...DEFAULT_TRANSITION },
+  },
+};
 
 const SideBar: React.FC = () => {
   return (
     <Wrapper>
-      <Container>
+      <Container variants={animation}>
         <AccountBalance />
         <AmountInvested>
           Ver Total Investido <FiBarChart2 size="1.6rem" />
