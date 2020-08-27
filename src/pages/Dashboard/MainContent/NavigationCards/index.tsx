@@ -3,9 +3,10 @@ import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
 import { Container, Card, Navigation } from './styles';
-import { cardsNavigation } from '../../../../resources';
-import Button from '../../../../components/Button';
-import { DEFAULT_TRANSITION } from '../../../../constants';
+
+import { cardsNavigation } from '~/resources';
+import Button from '~/components/Button';
+import { DEFAULT_TRANSITION } from '~/constants';
 
 const containerAnimation = {
   unMounted: { y: -50, opacity: 0 },

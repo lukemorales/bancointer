@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
 
 import { Container, Wrapper, LeftNav, RightNav } from './styles';
-import { BancoInter } from '../../assets/images';
-import Button from '../Button';
 import AccountDropdown from './AccountDropdown';
 import { User } from './Header';
 import Gradient from './Gradient';
-import { DEFAULT_TRANSITION } from '../../constants';
+import Button from '../Button';
+
+import { BancoInter } from '~/assets/images';
+import { DEFAULT_TRANSITION } from '~/constants';
 
 const containerAnimation = {
   unMounted: {},
