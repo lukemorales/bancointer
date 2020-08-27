@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Theme } from '../../../../styles/styled';
 
-export const Container = styled.section`
+export const Container = styled(motion.section)`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 2.4rem;
@@ -11,7 +12,7 @@ export const Container = styled.section`
   height: 100%;
 `;
 
-export const Card = styled.article`
+export const Card = styled(motion.article)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
     max-width: 26.4rem;

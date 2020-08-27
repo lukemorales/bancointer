@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
 
 import Button from '../../../components/Button';
 
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Container = styled.section`
+export const Container = styled(motion.section)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
 

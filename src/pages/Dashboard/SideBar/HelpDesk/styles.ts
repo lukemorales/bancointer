@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
 
 import { Container as ButtonContainer } from '../../../../components/Button/styles';
 
-export const Container = styled.aside`
+export const Container = styled(motion.aside)`
   ${({ theme }) => css`
     padding: 2rem 2.4rem;
     margin-top: 2.4rem;

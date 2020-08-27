@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
 
-import Button from '../../../../components/Button';
-
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
     height: 100%;
@@ -35,7 +34,7 @@ export const Navigation = styled.nav`
   column-gap: 0.8rem;
 `;
 
-export const Card = styled(Button)`
+export const Card = styled(motion.button)`
   ${({ theme }) => css`
     max-width: 12rem;
     max-height: 12rem;

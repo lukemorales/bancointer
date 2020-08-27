@@ -52,6 +52,10 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   ul {
