@@ -21,15 +21,17 @@ export const Wrapper = styled(motion.div)`
 
 export const LeftNav = styled(motion.div)`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 
   > svg {
     max-width: 11.2rem;
     height: auto;
-    margin: 0 2.4rem 1.1rem 0;
+    margin: 0 2.4rem 0.4rem -0.4rem;
   }
 
-  font-size: ${({ theme }) => theme.fontSizes.large};
+  font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: 700;
 `;
 
