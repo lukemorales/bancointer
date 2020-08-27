@@ -3,7 +3,8 @@ import React from 'react';
 import { useTheme } from 'styled-components';
 
 import { Container, FooterSection, Wrapper } from './styles';
-import NortonSecured from '../../assets/images/illustrations/norton-secured.svg';
+
+import NortonSecured from '~/assets/images/illustrations/norton-secured.svg';
 
 const Footer: React.FC = () => {
   const { colors } = useTheme();

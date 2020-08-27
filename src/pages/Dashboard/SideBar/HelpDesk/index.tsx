@@ -3,8 +3,9 @@ import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
 import { Container, HelpButton } from './styles';
-import BabiHelpDesk from '../../../../assets/images/illustrations/babi.png';
-import { DEFAULT_TRANSITION } from '../../../../constants';
+
+import BabiHelpDesk from '~/assets/images/illustrations/babi.png';
+import { DEFAULT_TRANSITION } from '~/constants';
 
 const animation = {
   unMounted: { x: -50, opacity: 0 },
