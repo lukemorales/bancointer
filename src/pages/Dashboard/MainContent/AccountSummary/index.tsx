@@ -5,7 +5,6 @@ import { ResponsiveLine } from '@nivo/line';
 import { ResponsiveBar } from '@nivo/bar';
 import { useTheme } from 'styled-components';
 
-import { barChartData, lineChartData } from '~/resources';
 import {
   Container,
   Card,
@@ -22,6 +21,7 @@ import CreditCardIllustration from '~/assets/images/illustrations/card-illustrat
 import { ReactComponent as HiddenData } from '~/assets/images/illustrations/hidden-data.svg';
 import Button from '~/components/Button';
 import { DEFAULT_TRANSITION } from '~/constants';
+import { barChartData, lineChartData } from '~/resources';
 
 const containerAnimation = {
   unMounted: { y: -50, opacity: 0 },
