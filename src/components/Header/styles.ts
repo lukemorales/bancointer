@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Container = styled.header`
+export const Container = styled(motion.header)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@ export const Container = styled.header`
   position: relative;
 `;
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled.div`
   max-width: 113rem;
   height: 10.4rem;
   width: 100%;

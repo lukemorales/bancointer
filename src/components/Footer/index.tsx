@@ -6,11 +6,26 @@ import { Container, FooterSection, Wrapper } from './styles';
 
 import NortonSecured from '~/assets/images/illustrations/norton-secured.svg';
 
+const containerAnimation = {
+  unMounted: { opacity: 0 },
+  mounted: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
 const Footer: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <Container>
+    <Container
+      variants={containerAnimation}
+      initial="unMounted"
+      animate="mounted"
+      exit="unMounted"
+    >
       <FooterSection as="section">
         <Wrapper>
           <div>
