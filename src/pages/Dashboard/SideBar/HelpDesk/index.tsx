@@ -6,6 +6,7 @@ import { Container, HelpButton } from './styles';
 
 import BabiHelpDesk from '~/assets/images/illustrations/babi.png';
 import { DEFAULT_TRANSITION } from '~/constants';
+import useAuth from '~/contexts/auth';
 
 const animation = {
   unMounted: { x: -50, opacity: 0 },
@@ -17,11 +18,13 @@ const animation = {
 };
 
 const HelpDesk: React.FC = () => {
+  const { user } = useAuth();
+
   return (
     <Container variants={animation}>
       <img src={BabiHelpDesk} alt="Eu sou a Babi do Banco Inter" />
       <span>
-        Olá, Luke. <br /> Posso Ajudar?
+        {`Olá, ${user}.`} <br /> Posso Ajudar?
       </span>
       <HelpButton>
         <FiArrowRight size={24} />
