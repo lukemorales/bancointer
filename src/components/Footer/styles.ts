@@ -1,15 +1,17 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
 
 import { Wrapper as HeaderWrapper } from '../Header/styles';
 
-export const Container = styled.footer`
+export const Container = styled(motion.footer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin-top: 3.2rem;
+  transform-origin: bottom;
 `;
 
 export const Wrapper = styled(HeaderWrapper)`

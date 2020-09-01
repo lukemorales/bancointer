@@ -4,8 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 import { Container, Balance } from './styles';
-import Button from '../../../../components/Button';
 import BalanceSecret from './BalanceSecret';
+
+import Button from '~/components/Button';
 
 const AccountBalance: React.FC = () => {
   const [isHidden, setIsHidden] = useState(true);

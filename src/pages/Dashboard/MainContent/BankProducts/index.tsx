@@ -12,9 +12,10 @@ import {
   EquitySection,
   LoanSection,
 } from './styles';
-import Button from '../../../../components/Button';
-import { bankProducts } from '../../../../resources';
-import { DEFAULT_TRANSITION } from '../../../../constants';
+
+import Button from '~/components/Button';
+import { bankProducts } from '~/resources';
+import { DEFAULT_TRANSITION } from '~/constants';
 
 const animation = {
   unMounted: { opacity: 0, x: 50 },

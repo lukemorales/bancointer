@@ -29,5 +29,10 @@ export const Container = styled.button<ButtonProps>`
     }
 
     ${variant && variants[variant]};
+
+    :disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
   `}
 `;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { motion } from 'framer-motion';
 
-import Button from '../../../components/Button';
+import Button from '~/components/Button';
 
 export const Wrapper = styled.div`
   max-width: 26.4rem;

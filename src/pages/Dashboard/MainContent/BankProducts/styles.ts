@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Container as ButtonContainer } from '../../../../components/Button/styles';
-import ButtonBackground from '../../../../assets/images/illustrations/button-background.svg';
 import { Navigation, Card } from '../NavigationCards/styles';
+
+import { Container as ButtonContainer } from '~/components/Button/styles';
+import ButtonBackground from '~/assets/images/illustrations/button-background.svg';
 
 export const Container = styled(motion.section)`
   ${({ theme }) => css`

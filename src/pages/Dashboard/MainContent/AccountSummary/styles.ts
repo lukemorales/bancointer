@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Theme } from '../../../../styles/styled';
+import { Theme } from '~/styles/styled';
 
 export const Container = styled(motion.section)`
   display: grid;
