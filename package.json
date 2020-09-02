@@ -14,6 +14,8 @@
     "@types/react-dom": "^16.9.0",
     "babel-plugin-root-import": "^6.5.0",
     "customize-cra": "^1.0.0",
+    "date-fns": "^2.16.1",
+    "faker": "^5.1.0",
     "framer-motion": "^2.6.0",
     "polished": "^3.6.5",
     "react": "^16.13.1",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
+    "@types/faker": "^4.1.12",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
