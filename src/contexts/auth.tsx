@@ -1,13 +1,23 @@
-import React, { createContext, useState, useCallback, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useCallback,
+  useContext,
+  useEffect,
+} from 'react';
 
 import useLocalStorage from '~/hooks/useLocalStorage';
+import { generateAccountData } from '~/utils';
+import { AccountData } from '~/utils/generate-account-data';
 
 interface AuthState {
-  user?: string;
+  signed: boolean;
+  account: AccountData;
 }
 
 interface AuthContext {
-  user?: string;
+  signed: boolean;
+  account: AccountData;
   signIn(name: string): void;
   signOut(): void;
 }
@@ -15,32 +25,38 @@ interface AuthContext {
 const AuthContext = createContext<AuthContext | null>(null);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const [data, setData] = useState<AuthState>({} as AuthState);
   const [storedUser, setStoredUser] = useLocalStorage<string | null>('user');
-
-  const [data, setData] = useState<AuthState>(
-    storedUser ? { user: storedUser } : {},
-  );
 
   const signIn = useCallback(
     (name) => {
       setStoredUser(name);
-      setData({ user: name });
+
+      setData({ signed: true, account: generateAccountData(name) });
     },
     [setStoredUser],
   );
 
   const signOut = useCallback(() => {
     setStoredUser(null);
-    setData({});
+    setData({} as AuthState);
   }, [setStoredUser]);
 
-  const user = data?.user;
+  const value = React.useMemo(
+    () => ({
+      signed: data.signed,
+      account: data.account,
+      signIn,
+      signOut,
+    }),
+    [data, signIn, signOut],
+  );
 
-  const value = React.useMemo(() => ({ user, signIn, signOut }), [
-    signIn,
-    signOut,
-    user,
-  ]);
+  useEffect(() => {
+    if (storedUser) {
+      setData({ signed: true, account: generateAccountData(storedUser) });
+    }
+  }, []); // eslint-disable-line
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
