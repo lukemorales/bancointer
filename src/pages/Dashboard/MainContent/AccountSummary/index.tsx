@@ -21,7 +21,8 @@ import CreditCardIllustration from '~/assets/images/illustrations/card-illustrat
 import { ReactComponent as HiddenData } from '~/assets/images/illustrations/hidden-data.svg';
 import Button from '~/components/Button';
 import { DEFAULT_TRANSITION } from '~/constants';
-import { barChartData, lineChartData } from '~/resources';
+import useAuth from '~/contexts/auth';
+import { formatCurrency } from '~/utils';
 
 const containerAnimation = {
   unMounted: { y: -50, opacity: 0 },
@@ -46,16 +47,20 @@ type ChartValue = number | React.ReactText | undefined;
 const formatChartValue = (value: ChartValue): string => `${value || 0}%`;
 
 const AccountSummary: React.FC = () => {
+  const { statements, investments } = useAuth().account;
+  const { colors } = useTheme();
+
   const [displayStatement, setDisplayStatement] = useState(true);
   const [displayInvestments, setDisplayInvestments] = useState(true);
 
-  const investmentGrowth = useMemo(() => {
-    const [investments] = lineChartData;
-    const { y } = investments.data[investments.data.length - 1];
-    return formatChartValue(y);
-  }, []);
+  const currentMonth = statements?.[statements.length - 1];
 
-  const { colors } = useTheme();
+  const investmentGrowth = useMemo(() => {
+    const { data: investmentsData } = investments.timeline[0];
+    const { y } = investmentsData[investmentsData.length - 1];
+
+    return formatChartValue(y);
+  }, [investments]);
 
   return (
     <Container variants={containerAnimation}>
@@ -80,7 +85,7 @@ const AccountSummary: React.FC = () => {
           <LeftData>
             {displayStatement ? (
               <ResponsiveBar
-                data={barChartData}
+                data={statements || [{}]}
                 indexBy="month"
                 keys={['outcome', 'income']}
                 colors={({ id, data }) => data[`${id}Color`]}
@@ -103,7 +108,9 @@ const AccountSummary: React.FC = () => {
                       rightArrow={chart.index >= 3}
                       leftArrow={chart.index < 3}
                     >
-                      {`${label}: R$${value}`}
+                      {`${label}: ${formatCurrency(+value)
+                        .replace(' ', '')
+                        .replace('-', '')}`}
                     </CustomTooltip>
                   );
                 }}
@@ -133,11 +140,13 @@ const AccountSummary: React.FC = () => {
           <RightData>
             <span>Receita</span>
             <DataValue income>
-              {displayStatement ? 'R$ 8.552,22' : '---'}
+              {displayStatement ? formatCurrency(currentMonth?.income) : '---'}
             </DataValue>
             <span>Despesas</span>
             <DataValue outcome>
-              {displayStatement ? 'R$ 7.948,55' : '---'}
+              {displayStatement
+                ? formatCurrency(currentMonth?.outcome).replace('-', '')
+                : '---'}
             </DataValue>
           </RightData>
         </DataWrapper>
@@ -186,7 +195,7 @@ const AccountSummary: React.FC = () => {
           <LeftData>
             {displayInvestments ? (
               <ResponsiveLine
-                data={lineChartData}
+                data={investments.timeline}
                 useMesh
                 enableArea
                 enableCrosshair={false}
@@ -197,7 +206,6 @@ const AccountSummary: React.FC = () => {
                   type: 'linear',
                   min: 'auto',
                   max: 'auto',
-                  reverse: false,
                 }}
                 tooltip={({ point }) => {
                   return (
@@ -229,7 +237,9 @@ const AccountSummary: React.FC = () => {
           </LeftData>
           <RightData>
             <span>Total investido</span>
-            <DataValue>{displayInvestments ? 'R$ 5.750,00' : '---'}</DataValue>
+            <DataValue>
+              {displayInvestments ? investments.amount : '---'}
+            </DataValue>
             <span>Evolução no mês</span>
             <DataValue>
               {displayInvestments ? investmentGrowth : '---'}
