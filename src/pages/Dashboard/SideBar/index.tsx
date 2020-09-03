@@ -24,7 +24,10 @@ const SideBar: React.FC = () => {
     <Wrapper>
       <Container variants={animation}>
         <AccountBalance />
-        <AmountInvested>
+        <AmountInvested
+          whileHover={{ y: -4, transition: DEFAULT_TRANSITION }}
+          whileTap={{ y: 2, transition: DEFAULT_TRANSITION }}
+        >
           Ver Total Investido <FiBarChart2 size="1.6rem" />
         </AmountInvested>
         {Object.entries(sideBarNavigation).map(([key, value]) => (
