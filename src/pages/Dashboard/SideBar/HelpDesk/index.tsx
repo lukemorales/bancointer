@@ -18,13 +18,13 @@ const animation = {
 };
 
 const HelpDesk: React.FC = () => {
-  const { user } = useAuth();
+  const { user } = useAuth().account;
 
   return (
     <Container variants={animation}>
       <img src={BabiHelpDesk} alt="Eu sou a Babi do Banco Inter" />
       <span>
-        {`Olá, ${user}.`} <br /> Posso Ajudar?
+        {`Olá, ${user.name}.`} <br /> Posso Ajudar?
       </span>
       <HelpButton>
         <FiArrowRight size={24} />

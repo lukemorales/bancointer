@@ -12,9 +12,9 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  const { user } = useAuth();
+  const { signed } = useAuth();
 
-  if (!user) {
+  if (!signed) {
     return <Redirect to="/" />;
   }
 
