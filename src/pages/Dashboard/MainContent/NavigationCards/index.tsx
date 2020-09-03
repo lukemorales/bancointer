@@ -37,7 +37,7 @@ const NavigationCards: React.FC = () => {
             key={`card-${key}`}
             variants={cardsAnimation}
             transition={DEFAULT_TRANSITION}
-            whileHover={{ y: -4, transition: DEFAULT_TRANSITION }}
+            whileHover={{ y: -2, transition: DEFAULT_TRANSITION }}
             whileTap={{ y: 2, transition: DEFAULT_TRANSITION }}
           >
             <div>{value.icon}</div>

@@ -20,7 +20,7 @@ export const Container = styled.button<ButtonProps>`
     background: ${background || theme.colors.background};
     border: 0;
     padding: 0.8rem 2.4rem;
-    border-radius: 0.4rem;
+    border-radius: ${theme.radius.small};
     color: ${color || theme.colors.secondary};
     transition: ${theme.transition.default};
 
