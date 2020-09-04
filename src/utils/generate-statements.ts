@@ -12,12 +12,18 @@ export type GeneratedStatement = {
   outcomeColor: string;
 };
 
-const generateStatements = (): Array<GeneratedStatement> => {
+export interface GenerateStatements {
+  (visible?: boolean): Array<GeneratedStatement>;
+}
+
+const generateStatements: GenerateStatements = (visible = true) => {
   const currentMonthsInterval = generateMonthsInterval();
 
-  return currentMonthsInterval.map((month) => {
-    const income = +faker.finance.amount(4750, 8000, 2);
-    const outcome = +faker.finance.amount(-income + 150, -2750, 2);
+  return currentMonthsInterval.map((month, index) => {
+    const income = visible ? +faker.finance.amount(4750, 8000, 2) : 1;
+    const outcome = visible
+      ? +faker.finance.amount(-income + 150, -2750, 2)
+      : -1;
 
     return {
       month,
