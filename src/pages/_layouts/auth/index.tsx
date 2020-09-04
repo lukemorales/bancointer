@@ -13,6 +13,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ background, children }) => {
 
   return (
     <AnimatedContainer
+      initial={false}
       animate={{ background }}
       exit={{ background: colors.lightGrey }}
       transition={{ duration: 0.35 }}
