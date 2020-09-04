@@ -4,9 +4,8 @@ import { FiArrowRight } from 'react-icons/fi';
 
 import { Container, Card, Navigation } from './styles';
 
-import { cardsNavigation } from '~/resources';
 import Button from '~/components/Button';
-import { DEFAULT_TRANSITION } from '~/constants';
+import { DEFAULT_TRANSITION, CARDS_NAVIGATION } from '~/constants';
 
 const containerAnimation = {
   unMounted: { y: -50, opacity: 0 },
@@ -31,7 +30,7 @@ const NavigationCards: React.FC = () => {
   return (
     <Container variants={containerAnimation}>
       <Navigation>
-        {Object.entries(cardsNavigation).map(([key, value]) => (
+        {Object.entries(CARDS_NAVIGATION).map(([key, value]) => (
           <Card
             layout
             key={`card-${key}`}
