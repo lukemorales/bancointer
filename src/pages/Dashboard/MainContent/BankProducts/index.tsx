@@ -14,8 +14,7 @@ import {
 } from './styles';
 
 import Button from '~/components/Button';
-import { bankProducts } from '~/resources';
-import { DEFAULT_TRANSITION } from '~/constants';
+import { DEFAULT_TRANSITION, BANK_PRODUCTS } from '~/constants';
 
 const animation = {
   unMounted: { opacity: 0, x: 50 },
@@ -41,7 +40,7 @@ const BankProducts: React.FC = () => {
           <FiArrowRight size={24} />
         </ShoppingButton>
         <Products>
-          {Object.entries(bankProducts).map(([key, value]) => (
+          {Object.entries(BANK_PRODUCTS).map(([key, value]) => (
             <ProductCard key={`card-${key}`}>
               <div>{value.icon}</div>
               {key}

@@ -7,8 +7,7 @@ import Dropdown from './Dropdown';
 import AccountBalance from './AccountBalance';
 import HelpDesk from './HelpDesk';
 
-import { sideBarNavigation } from '~/resources';
-import { DEFAULT_TRANSITION } from '~/constants';
+import { DEFAULT_TRANSITION, SIDE_BAR_NAVIGATION } from '~/constants';
 
 const animation = {
   unMounted: { opacity: 0, y: -50 },
@@ -30,7 +29,7 @@ const SideBar: React.FC = () => {
         >
           Ver Total Investido <FiBarChart2 size="1.6rem" />
         </AmountInvested>
-        {Object.entries(sideBarNavigation).map(([key, value]) => (
+        {Object.entries(SIDE_BAR_NAVIGATION).map(([key, value]) => (
           <Dropdown key={key} icon={value.icon} sectionName={key} />
         ))}
       </Container>
