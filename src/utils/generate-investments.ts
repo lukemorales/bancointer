@@ -5,16 +5,16 @@ import formatCurrency from './format-currency';
 
 import theme from '~/styles/theme';
 
-export interface GeneratedInvestment {
-  id: string;
-  color: string;
-  data: Datum[];
-}
-
-export interface Datum {
+export type InvestmentTimeline = {
   x: string;
   y: number;
-}
+};
+
+export type GeneratedInvestment = {
+  id: string;
+  color: string;
+  data: Array<InvestmentTimeline>;
+};
 
 export interface Investments {
   amount: string;

@@ -5,26 +5,12 @@ import { AnimatePresence } from 'framer-motion';
 import { FiLogOut } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
-import { Container, DropDown, LogOutButton } from './styles';
+import { Container, AnimatedDropdown, LogOutButton } from './styles';
+import { DROP_DOWN_ANIMATION } from './animations';
 
 import useAuth from '~/contexts/auth';
-import { DEFAULT_TRANSITION } from '~/constants';
 import useEventListener from '~/hooks/useEventListener';
-
-const dropDownAnimation = {
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: DEFAULT_TRANSITION,
-  },
-  hidden: {
-    y: -20,
-    opacity: 0,
-    transition: DEFAULT_TRANSITION,
-  },
-};
-
-const removeHashFromColor = (color: string): string => color.slice(1);
+import { removeHashFromColor } from '~/utils';
 
 const AccountDropdown: React.FC = () => {
   const history = useHistory();
@@ -70,8 +56,8 @@ const AccountDropdown: React.FC = () => {
 
       <AnimatePresence>
         {isDropdownVisible && (
-          <DropDown
-            variants={dropDownAnimation}
+          <AnimatedDropdown
+            variants={DROP_DOWN_ANIMATION}
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -83,7 +69,7 @@ const AccountDropdown: React.FC = () => {
                 Sair da Conta
               </LogOutButton>
             </ul>
-          </DropDown>
+          </AnimatedDropdown>
         )}
       </AnimatePresence>
     </Container>

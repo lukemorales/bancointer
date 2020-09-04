@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Container = styled(motion.section)`
+export const AnimatedContainer = styled(motion.section)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
 
@@ -22,7 +22,7 @@ export const Container = styled(motion.section)`
   `}
 `;
 
-export const AmountInvested = styled(motion.button)`
+export const AnimatedAmountInvested = styled(motion.button)`
   && {
     ${({ theme }) => css`
       display: flex;

@@ -1,10 +1,10 @@
 /* eslint consistent-return: 0 */
 import { useEffect, useRef } from 'react';
 
-interface EventListenerOptions {
+type EventListenerOptions = {
   enabled?: boolean;
   target?: GlobalEventHandlers;
-}
+};
 
 interface EventListenerHook {
   (

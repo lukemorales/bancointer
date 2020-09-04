@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import { Theme } from '~/styles/styled';
 
-export const Container = styled(motion.section)`
+export const AnimatedContainer = styled(motion.section)`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 2.4rem;
@@ -12,7 +12,7 @@ export const Container = styled(motion.section)`
   height: 100%;
 `;
 
-export const Card = styled(motion.article)`
+export const AnimatedCard = styled(motion.article)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
     max-width: 26.4rem;

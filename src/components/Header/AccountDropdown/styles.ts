@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const DropDown = styled(motion.nav)`
+export const AnimatedDropdown = styled(motion.nav)`
   ${({ theme }) => css`
     position: absolute;
     z-index: 10;

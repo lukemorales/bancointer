@@ -7,7 +7,11 @@ export type AccountData = {
   investments: Investments;
 };
 
-const generateAccountData = (name: string): AccountData => ({
+export interface GenerateAccountData {
+  (name: string): AccountData;
+}
+
+const generateAccountData: GenerateAccountData = (name) => ({
   user: { name },
   statements: generateStatements(),
   investments: generateInvestments(),

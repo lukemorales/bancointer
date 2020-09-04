@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import { Container as ButtonContainer } from '~/components/Button/styles';
 
-export const Container = styled(motion.aside)`
+export const AnimatedContainer = styled(motion.aside)`
   ${({ theme }) => css`
     padding: 2rem 2.4rem;
     margin-top: 2.4rem;

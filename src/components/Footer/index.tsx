@@ -2,26 +2,17 @@ import React from 'react';
 
 import { useTheme } from 'styled-components';
 
-import { Container, FooterSection, Wrapper } from './styles';
+import { AnimatedContainer, FooterSection, Wrapper } from './styles';
+import { CONTAINER_ANIMATION } from './animations';
 
 import NortonSecured from '~/assets/images/illustrations/norton-secured.svg';
-
-const containerAnimation = {
-  unMounted: { opacity: 0 },
-  mounted: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
 
 const Footer: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <Container
-      variants={containerAnimation}
+    <AnimatedContainer
+      variants={CONTAINER_ANIMATION}
       initial="unMounted"
       animate="mounted"
       exit="unMounted"
@@ -56,7 +47,7 @@ const Footer: React.FC = () => {
           />
         </Wrapper>
       </FooterSection>
-    </Container>
+    </AnimatedContainer>
   );
 };
 

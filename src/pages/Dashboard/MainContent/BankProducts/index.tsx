@@ -5,31 +5,23 @@ import { useTheme } from 'styled-components';
 import { darken } from 'polished';
 
 import {
-  Container,
+  AnimatedContainer,
   ShoppingButton,
   Products,
   ProductCard,
   EquitySection,
   LoanSection,
 } from './styles';
+import { BANK_PRODUCTS_ANIMATION } from './animations';
 
 import Button from '~/components/Button';
-import { DEFAULT_TRANSITION, BANK_PRODUCTS } from '~/constants';
-
-const animation = {
-  unMounted: { opacity: 0, x: 50 },
-  mounted: {
-    opacity: 1,
-    x: 0,
-    transition: { delay: 1.2, ...DEFAULT_TRANSITION },
-  },
-};
+import { BANK_PRODUCTS } from '~/constants';
 
 const BankProducts: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <Container variants={animation}>
+    <AnimatedContainer variants={BANK_PRODUCTS_ANIMATION}>
       <div>
         <ShoppingButton background={colors.lightGrey}>
           <FiShoppingCart size={32} />
@@ -95,7 +87,7 @@ const BankProducts: React.FC = () => {
           </div>
         </LoanSection>
       </div>
-    </Container>
+    </AnimatedContainer>
   );
 };
 

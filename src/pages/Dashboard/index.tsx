@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Wrapper } from './styles';
+import { Container, AnimatedWrapper } from './styles';
 import SideBar from './SideBar';
 import MainContent from './MainContent';
 import DefaultLayout from '../_layouts/default';
@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
   return (
     <DefaultLayout>
       <Container>
-        <Wrapper
+        <AnimatedWrapper
           variants={animation}
           initial="unMounted"
           animate="mounted"
@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
         >
           <SideBar />
           <MainContent />
-        </Wrapper>
+        </AnimatedWrapper>
       </Container>
     </DefaultLayout>
   );

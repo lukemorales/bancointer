@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { motion } from 'framer-motion';
 
-export const Container = styled(motion.div)`
+export const AnimatedContainer = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@ export const Navigation = styled.nav`
   column-gap: 0.8rem;
 `;
 
-export const Card = styled(motion.button)`
+export const AnimatedCard = styled(motion.button)`
   ${({ theme }) => css`
     max-width: 12rem;
     max-height: 12rem;
