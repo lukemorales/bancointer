@@ -13,7 +13,7 @@ const Routes: React.FC = () => {
   const { pathname } = location;
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter={pathname === '/dashboard'}>
       <Switch location={location} key={pathname}>
         <Route path="/" exact component={Welcome} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
