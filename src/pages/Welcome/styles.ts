@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import Button from '~/components/Button';
 
-export const Container = styled(motion.main)`
+export const AnimatedContainer = styled(motion.main)`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;

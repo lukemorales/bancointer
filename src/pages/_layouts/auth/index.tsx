@@ -2,22 +2,23 @@ import React from 'react';
 
 import { useTheme } from 'styled-components';
 
-import { Container } from './styles';
+import { AnimatedContainer } from './styles';
 
-const AuthLayout: React.FC<{ background: string }> = ({
-  background,
-  children,
-}) => {
+export interface AuthLayoutProps {
+  background: string;
+}
+
+const AuthLayout: React.FC<AuthLayoutProps> = ({ background, children }) => {
   const { colors } = useTheme();
 
   return (
-    <Container
+    <AnimatedContainer
       animate={{ background }}
       exit={{ background: colors.lightGrey }}
       transition={{ duration: 0.35 }}
     >
       {children}
-    </Container>
+    </AnimatedContainer>
   );
 };
 

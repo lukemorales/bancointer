@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import { Wrapper as HeaderWrapper } from '../Header/styles';
 
-export const Container = styled(motion.footer)`
+export const AnimatedContainer = styled(motion.footer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@ export const Wrapper = styled(HeaderWrapper)`
   `}
 `;
 
-export const FooterSection = styled(Container)<{ background?: string }>`
+export const FooterSection = styled(AnimatedContainer)<{ background?: string }>`
   ${({ theme, background }) => css`
     background: ${background || transparentize(0.92, theme.colors.grey)};
     margin-top: 0;

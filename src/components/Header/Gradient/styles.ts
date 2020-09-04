@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Container = styled(motion.aside)`
+export const AnimatedContainer = styled(motion.aside)`
   width: 100%;
   height: 6.4rem;
   align-self: flex-start;

@@ -19,7 +19,7 @@ export interface GenerateStatements {
 const generateStatements: GenerateStatements = (visible = true) => {
   const currentMonthsInterval = generateMonthsInterval();
 
-  return currentMonthsInterval.map((month, index) => {
+  return currentMonthsInterval.map((month) => {
     const income = visible ? +faker.finance.amount(4750, 8000, 2) : 1;
     const outcome = visible
       ? +faker.finance.amount(-income + 150, -2750, 2)

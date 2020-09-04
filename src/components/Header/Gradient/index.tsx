@@ -1,23 +1,12 @@
 import React, { memo } from 'react';
 
-import { Container } from './styles';
-
-const animation = {
-  unMounted: { width: '0%' },
-  mounted: {
-    width: '100%',
-    transition: {
-      delay: 0.5,
-      duration: 1.8,
-      ease: 'easeInOut',
-    },
-  },
-};
+import { AnimatedContainer } from './styles';
+import { GRADIENT_ANIMATION } from './animations';
 
 const Gradient: React.FC = () => (
-  <Container
+  <AnimatedContainer
     layout
-    variants={animation}
+    variants={GRADIENT_ANIMATION}
     initial="unMounted"
     animate="mounted"
   />

@@ -6,8 +6,8 @@ import { ResponsiveBar } from '@nivo/bar';
 import { useTheme } from 'styled-components';
 
 import {
-  Container,
-  Card,
+  AnimatedContainer,
+  AnimatedCard,
   Header,
   DataWrapper,
   LeftData,
@@ -15,6 +15,7 @@ import {
   DataValue,
   CustomTooltip,
 } from './styles';
+import { CONTAINER_ANIMATION, CARDS_ANIMATION } from './animations';
 
 import { PlataformaPaiIcon } from '~/assets/images/icons';
 import CreditCardIllustration from '~/assets/images/illustrations/card-illustration.png';
@@ -25,29 +26,9 @@ import {
   formatCurrency,
   generateInvestments,
   generateStatements,
+  formatChartValue,
 } from '~/utils';
 
-const containerAnimation = {
-  unMounted: { y: -50, opacity: 0 },
-  mounted: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.5,
-      when: 'beforeChildren',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const cardsAnimation = {
-  unMounted: { y: -25, opacity: 0 },
-  mounted: { y: 0, opacity: 1 },
-};
-
-type ChartValue = number | React.ReactText | undefined;
-
-const formatChartValue = (value: ChartValue): string => `${value || 0}%`;
 const hiddenStatements = generateStatements(false);
 const hiddenInvestments = generateInvestments(false).timeline;
 
@@ -68,11 +49,11 @@ const AccountSummary: React.FC = () => {
   }, [investments]);
 
   return (
-    <Container variants={containerAnimation}>
-      <Card
+    <AnimatedContainer variants={CONTAINER_ANIMATION}>
+      <AnimatedCard
         layout
         key="statement"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke>
@@ -151,11 +132,11 @@ const AccountSummary: React.FC = () => {
             </DataValue>
           </RightData>
         </DataWrapper>
-      </Card>
-      <Card
+      </AnimatedCard>
+      <AnimatedCard
         layout
         key="credit-card"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke>
@@ -174,11 +155,11 @@ const AccountSummary: React.FC = () => {
             <span>Seu cartão é MasterCard e sem anuidade!</span>
           </RightData>
         </DataWrapper>
-      </Card>
-      <Card
+      </AnimatedCard>
+      <AnimatedCard
         layout
         key="investments"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke={false}>
@@ -244,8 +225,8 @@ const AccountSummary: React.FC = () => {
             </DataValue>
           </RightData>
         </DataWrapper>
-      </Card>
-    </Container>
+      </AnimatedCard>
+    </AnimatedContainer>
   );
 };
 
