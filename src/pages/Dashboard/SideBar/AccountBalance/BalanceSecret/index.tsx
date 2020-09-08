@@ -1,16 +1,13 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 
-import styled, { css } from 'styled-components';
-import { motion, usePresence } from 'framer-motion';
+import { usePresence } from 'framer-motion';
 
-type BalanceSecretProps = {
+import { SHOW_SECRET_ANIMATION } from './animations';
+import { AnimatedContainer } from './styles';
+
+export interface BalanceSecretProps {
   setIsValueVisible: Dispatch<SetStateAction<boolean>>;
-};
-
-const showSecret = {
-  visible: { width: '100%' },
-  hidden: { width: '0%' },
-};
+}
 
 const BalanceSecret: React.FC<BalanceSecretProps> = ({ setIsValueVisible }) => {
   const [isPresent] = usePresence();
@@ -23,7 +20,7 @@ const BalanceSecret: React.FC<BalanceSecretProps> = ({ setIsValueVisible }) => {
     <AnimatedContainer
       key="balance-secret"
       layout
-      variants={showSecret}
+      variants={SHOW_SECRET_ANIMATION}
       initial={false}
       animate="visible"
       exit="hidden"
@@ -33,15 +30,3 @@ const BalanceSecret: React.FC<BalanceSecretProps> = ({ setIsValueVisible }) => {
 };
 
 export default BalanceSecret;
-
-const AnimatedContainer = styled(motion.span)`
-  ${({ theme }) => css`
-    margin: 0.2rem 0;
-    max-width: 10rem;
-    height: 2rem;
-    background: ${theme.colors.greyLowerOpacity};
-    border-radius: ${theme.radius.tiny};
-    position: absolute;
-    z-index: 2;
-  `}
-`;

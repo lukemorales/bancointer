@@ -4,32 +4,12 @@ import { useHistory } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import { transform } from 'framer-motion';
 
-import { Container, Form, SignInButton } from './styles';
+import { AnimatedContainer, Form, SignInButton } from './styles';
 import AuthLayout from '../_layouts/auth';
+import { ANIMATION } from './animations';
 
 import { BancoInter } from '~/assets/images';
 import useAuth from '~/contexts/auth';
-import { DEFAULT_TRANSITION } from '~/constants';
-
-const animation = {
-  unMounted: { opacity: 0, y: 50 },
-  mounted: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ...DEFAULT_TRANSITION,
-      mass: 2.5,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -50,
-    transition: {
-      ...DEFAULT_TRANSITION,
-      mass: 2.5,
-    },
-  },
-};
 
 const Welcome: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -54,8 +34,8 @@ const Welcome: React.FC = () => {
 
   return (
     <AuthLayout background={animateBackground(inputValue.length)}>
-      <Container
-        variants={animation}
+      <AnimatedContainer
+        variants={ANIMATION}
         initial="unMounted"
         animate="mounted"
         exit="unMounted"
@@ -80,7 +60,7 @@ const Welcome: React.FC = () => {
             Entrar no App
           </SignInButton>
         </Form>
-      </Container>
+      </AnimatedContainer>
     </AuthLayout>
   );
 };

@@ -6,8 +6,8 @@ import { ResponsiveBar } from '@nivo/bar';
 import { useTheme } from 'styled-components';
 
 import {
-  Container,
-  Card,
+  AnimatedContainer,
+  AnimatedCard,
   Header,
   DataWrapper,
   LeftData,
@@ -15,36 +15,22 @@ import {
   DataValue,
   CustomTooltip,
 } from './styles';
+import { CONTAINER_ANIMATION, CARDS_ANIMATION } from './animations';
 
 import { PlataformaPaiIcon } from '~/assets/images/icons';
 import CreditCardIllustration from '~/assets/images/illustrations/card-illustration.png';
-import { ReactComponent as HiddenData } from '~/assets/images/illustrations/hidden-data.svg';
 import Button from '~/components/Button';
 import { DEFAULT_TRANSITION } from '~/constants';
 import useAuth from '~/contexts/auth';
-import { formatCurrency } from '~/utils';
+import {
+  formatCurrency,
+  generateInvestments,
+  generateStatements,
+  formatChartValue,
+} from '~/utils';
 
-const containerAnimation = {
-  unMounted: { y: -50, opacity: 0 },
-  mounted: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.5,
-      when: 'beforeChildren',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const cardsAnimation = {
-  unMounted: { y: -25, opacity: 0 },
-  mounted: { y: 0, opacity: 1 },
-};
-
-type ChartValue = number | React.ReactText | undefined;
-
-const formatChartValue = (value: ChartValue): string => `${value || 0}%`;
+const hiddenStatements = generateStatements(false);
+const hiddenInvestments = generateInvestments(false).timeline;
 
 const AccountSummary: React.FC = () => {
   const { statements, investments } = useAuth().account;
@@ -63,11 +49,11 @@ const AccountSummary: React.FC = () => {
   }, [investments]);
 
   return (
-    <Container variants={containerAnimation}>
-      <Card
+    <AnimatedContainer variants={CONTAINER_ANIMATION}>
+      <AnimatedCard
         layout
         key="statement"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke>
@@ -83,59 +69,55 @@ const AccountSummary: React.FC = () => {
 
         <DataWrapper>
           <LeftData>
-            {displayStatement ? (
-              <ResponsiveBar
-                data={statements || [{}]}
-                indexBy="month"
-                keys={['outcome', 'income']}
-                colors={({ id, data }) => data[`${id}Color`]}
-                margin={{ top: 8, right: -8, bottom: 24, left: -8 }}
-                padding={0.88}
-                borderRadius={2}
-                axisTop={null}
-                axisRight={null}
-                axisLeft={null}
-                axisBottom={{
-                  tickSize: 0,
-                  tickPadding: 8,
-                  tickRotation: 0,
-                }}
-                tooltip={(chart) => {
-                  const label = chart.id === 'income' ? 'Receita' : 'Despesas';
-                  const value = chart.data[chart.id];
-                  return (
-                    <CustomTooltip
-                      rightArrow={chart.index >= 3}
-                      leftArrow={chart.index < 3}
-                    >
-                      {`${label}: ${formatCurrency(+value)
-                        .replace(' ', '')
-                        .replace('-', '')}`}
-                    </CustomTooltip>
-                  );
-                }}
-                theme={{
-                  tooltip: {
-                    container: {
-                      background: 'transparent',
-                      boxShadow: 'none',
-                      padding: 0,
-                      borderRadius: 0,
-                    },
-                    tableCell: {
-                      padding: 0,
-                    },
+            <ResponsiveBar
+              data={displayStatement ? statements : hiddenStatements}
+              indexBy="month"
+              keys={['outcome', 'income']}
+              colors={({ id, data }) => data[`${id}Color`]}
+              margin={{ top: 8, right: -8, bottom: 24, left: -8 }}
+              padding={0.88}
+              borderRadius={2}
+              axisTop={null}
+              axisRight={null}
+              axisLeft={null}
+              axisBottom={{
+                tickSize: 0,
+                tickPadding: 8,
+                tickRotation: 0,
+              }}
+              tooltip={(chart) => {
+                const label = chart.id === 'income' ? 'Receita' : 'Despesas';
+                const value = chart.data[chart.id];
+                return (
+                  <CustomTooltip
+                    rightArrow={chart.index >= 3}
+                    leftArrow={chart.index < 3}
+                  >
+                    {`${label}: ${formatCurrency(+value)
+                      .replace(' ', '')
+                      .replace('-', '')}`}
+                  </CustomTooltip>
+                );
+              }}
+              theme={{
+                tooltip: {
+                  container: {
+                    background: 'transparent',
+                    boxShadow: 'none',
+                    padding: 0,
+                    borderRadius: 0,
                   },
-                }}
-                animate
-                motionStiffness={90}
-                motionDamping={15}
-                enableGridY={false}
-                enableLabel={false}
-              />
-            ) : (
-              <HiddenData />
-            )}
+                  tableCell: {
+                    padding: 0,
+                  },
+                },
+              }}
+              animate
+              motionStiffness={90}
+              motionDamping={15}
+              enableGridY={false}
+              enableLabel={false}
+            />
           </LeftData>
           <RightData>
             <span>Receita</span>
@@ -150,11 +132,11 @@ const AccountSummary: React.FC = () => {
             </DataValue>
           </RightData>
         </DataWrapper>
-      </Card>
-      <Card
+      </AnimatedCard>
+      <AnimatedCard
         layout
         key="credit-card"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke>
@@ -173,11 +155,11 @@ const AccountSummary: React.FC = () => {
             <span>Seu cartão é MasterCard e sem anuidade!</span>
           </RightData>
         </DataWrapper>
-      </Card>
-      <Card
+      </AnimatedCard>
+      <AnimatedCard
         layout
         key="investments"
-        variants={cardsAnimation}
+        variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
       >
         <Header iconStroke={false}>
@@ -193,47 +175,44 @@ const AccountSummary: React.FC = () => {
 
         <DataWrapper>
           <LeftData>
-            {displayInvestments ? (
-              <ResponsiveLine
-                data={investments.timeline}
-                useMesh
-                enableArea
-                enableCrosshair={false}
-                curve="cardinal"
-                margin={{ top: 8, right: 8, bottom: 24, left: 12 }}
-                xScale={{ type: 'point' }}
-                yScale={{
-                  type: 'linear',
-                  min: 'auto',
-                  max: 'auto',
-                }}
-                tooltip={({ point }) => {
-                  return (
-                    <CustomTooltip>
-                      {formatChartValue(point.data.yFormatted)}
-                    </CustomTooltip>
-                  );
-                }}
-                axisTop={null}
-                axisRight={null}
-                axisBottom={{
-                  orient: 'bottom',
-                  tickSize: 0,
-                  tickPadding: 8,
-                  tickRotation: 0,
-                }}
-                axisLeft={null}
-                colors={colors.success}
-                lineWidth={1.5}
-                pointSize={8}
-                pointColor={colors.success}
-                pointLabel="y"
-                pointLabelYOffset={-12}
-                enableGridY={false}
-              />
-            ) : (
-              <HiddenData />
-            )}
+            <ResponsiveLine
+              data={
+                displayInvestments ? investments.timeline : hiddenInvestments
+              }
+              useMesh
+              enableCrosshair={false}
+              curve="cardinal"
+              margin={{ top: 8, right: 8, bottom: 24, left: 12 }}
+              xScale={{ type: 'point' }}
+              yScale={{
+                type: 'linear',
+                min: 'auto',
+                max: 'auto',
+              }}
+              tooltip={({ point }) => {
+                return (
+                  <CustomTooltip>
+                    {formatChartValue(point.data.yFormatted)}
+                  </CustomTooltip>
+                );
+              }}
+              axisTop={null}
+              axisRight={null}
+              axisBottom={{
+                orient: 'bottom',
+                tickSize: 0,
+                tickPadding: 8,
+                tickRotation: 0,
+              }}
+              axisLeft={null}
+              colors={colors.success}
+              lineWidth={1.5}
+              pointSize={8}
+              pointColor={colors.success}
+              pointLabel="y"
+              pointLabelYOffset={-12}
+              enableGridY={false}
+            />
           </LeftData>
           <RightData>
             <span>Total investido</span>
@@ -246,8 +225,8 @@ const AccountSummary: React.FC = () => {
             </DataValue>
           </RightData>
         </DataWrapper>
-      </Card>
-    </Container>
+      </AnimatedCard>
+    </AnimatedContainer>
   );
 };
 

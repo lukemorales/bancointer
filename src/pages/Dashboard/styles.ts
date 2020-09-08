@@ -11,7 +11,7 @@ export const Container = styled.div`
   z-index: 2;
 `;
 
-export const Wrapper = styled(motion.div)`
+export const AnimatedWrapper = styled(motion.div)`
   max-width: 113rem;
   width: 100%;
   display: flex;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const storageKey = (key: string): string => `@BancoInterRedesign:${key}`;
+import { storageKey } from '~/utils';
 
 type HookReturn<T> = [T, (value: T) => void];
 
@@ -10,13 +10,18 @@ const useLocalStorage = <T>(key: string, initialValue?: T): HookReturn<T> => {
       const item = window.localStorage.getItem(storageKey(key));
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.log(error);
       return initialValue;
     }
   });
 
   const storeValue = (value: T): void => {
     setStoredValue(value);
+
+    if (!value) {
+      window.localStorage.removeItem(storageKey(key));
+      return;
+    }
+
     window.localStorage.setItem(storageKey(key), JSON.stringify(value));
   };
 

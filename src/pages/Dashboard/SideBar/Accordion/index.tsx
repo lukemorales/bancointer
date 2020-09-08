@@ -4,12 +4,12 @@ import { FiChevronDown } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-interface DropdownProps {
+export interface AccordionProps {
   icon: React.ReactNode;
   sectionName: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ icon, sectionName }) => {
+const Accordion: React.FC<AccordionProps> = ({ icon, sectionName }) => {
   return (
     <Container variant="transparent">
       <div>{icon}</div>
@@ -19,4 +19,4 @@ const Dropdown: React.FC<DropdownProps> = ({ icon, sectionName }) => {
   );
 };
 
-export default Dropdown;
+export default Accordion;

@@ -2,13 +2,12 @@ import React from 'react';
 
 import { FiBarChart2 } from 'react-icons/fi';
 
-import { Wrapper, Container, AmountInvested } from './styles';
-import Dropdown from './Dropdown';
+import { Wrapper, AnimatedContainer, AnimatedAmountInvested } from './styles';
+import Accordion from './Accordion';
 import AccountBalance from './AccountBalance';
 import HelpDesk from './HelpDesk';
 
-import { sideBarNavigation } from '~/resources';
-import { DEFAULT_TRANSITION } from '~/constants';
+import { DEFAULT_TRANSITION, SIDE_BAR_NAVIGATION } from '~/constants';
 
 const animation = {
   unMounted: { opacity: 0, y: -50 },
@@ -22,15 +21,18 @@ const animation = {
 const SideBar: React.FC = () => {
   return (
     <Wrapper>
-      <Container variants={animation}>
+      <AnimatedContainer variants={animation}>
         <AccountBalance />
-        <AmountInvested>
+        <AnimatedAmountInvested
+          whileHover={{ y: -4, transition: DEFAULT_TRANSITION }}
+          whileTap={{ y: 2, transition: DEFAULT_TRANSITION }}
+        >
           Ver Total Investido <FiBarChart2 size="1.6rem" />
-        </AmountInvested>
-        {Object.entries(sideBarNavigation).map(([key, value]) => (
-          <Dropdown key={key} icon={value.icon} sectionName={key} />
+        </AnimatedAmountInvested>
+        {Object.entries(SIDE_BAR_NAVIGATION).map(([key, value]) => (
+          <Accordion key={key} icon={value.icon} sectionName={key} />
         ))}
-      </Container>
+      </AnimatedContainer>
       <HelpDesk />
     </Wrapper>
   );

@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Navigation, Card } from '../NavigationCards/styles';
+import { Navigation, AnimatedCard } from '../NavigationCards/styles';
 
 import { Container as ButtonContainer } from '~/components/Button/styles';
 import ButtonBackground from '~/assets/images/illustrations/button-background.svg';
 
-export const Container = styled(motion.section)`
+export const AnimatedContainer = styled(motion.section)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
     border-radius: ${theme.radius.default};
@@ -63,7 +63,7 @@ export const Products = styled(Navigation)`
   margin: 0 -0.8rem 0 0.8rem;
 `;
 
-export const ProductCard = styled(Card)`
+export const ProductCard = styled(AnimatedCard)`
   ${({ theme }) => css`
     box-shadow: none;
     background: none;
