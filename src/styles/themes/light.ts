@@ -9,6 +9,7 @@ export default {
     darkGrey: '#6C757D',
     success: '#20C05C',
     error: '#FD4F48',
+    label: '#fff',
     background: '#fff',
     yellow: '#FFED00',
   },
@@ -27,13 +28,15 @@ export default {
   transition: {
     default: '180ms ease-in-out',
   },
-  radius: {
+  radii: {
     default: '0.8rem',
     small: '0.4rem',
+    smallTop: '0.4rem 0.4rem 0 0',
+    smallBottom: '0 0 0.4rem 0.4rem',
     tiny: '0.2rem',
   },
   shadows: {
     default: '0 0.5rem 2rem rgba(0, 0, 0, 0.08)',
     flat: '0 0.2rem 0.2rem rgba(0, 0, 0, 0.08)',
   },
-} as const;
+};
