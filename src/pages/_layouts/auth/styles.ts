@@ -9,4 +9,5 @@ export const AnimatedContainer = styled(motion.div)`
   height: 100%;
   padding: 3.2rem;
   position: relative;
+  flex: 1;
 `;
