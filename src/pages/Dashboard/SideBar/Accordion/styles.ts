@@ -36,6 +36,10 @@ export const Container = styled(Button)`
       > svg {
         margin-left: auto;
       }
+
+      @media (max-width: 670px) {
+        display: none;
+      }
     `}
   }
 `;
