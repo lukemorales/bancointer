@@ -18,7 +18,7 @@ export const AnimatedCard = styled(motion.article)`
     max-width: 26.4rem;
     width: 100%;
     height: 100%;
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     padding: 1.6rem 2.4rem;
     box-shadow: ${theme.shadows.flat};
     display: flex;
@@ -138,7 +138,7 @@ export const CustomTooltip = styled.div<CustomTooltipProps>`
   ${({ theme, rightArrow, leftArrow }) => css`
     background: ${theme.colors.lightGrey};
     padding: 0.4rem 0.8rem;
-    border-radius: ${theme.radius.small};
+    border-radius: ${theme.radii.small};
     font-size: ${theme.fontSizes.tiny};
     text-align: center;
     box-shadow: 0 -0.1rem 0.2rem rgba(0, 0, 0, 0.28);

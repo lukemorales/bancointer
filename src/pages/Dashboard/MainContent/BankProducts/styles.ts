@@ -9,7 +9,7 @@ import ButtonBackground from '~/assets/images/illustrations/button-background.sv
 export const AnimatedContainer = styled(motion.section)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     box-shadow: ${theme.shadows.flat};
     padding: 2.4rem;
     max-height: 34.2rem;
@@ -34,7 +34,7 @@ export const ShoppingButton = styled(ButtonContainer)`
     justify-content: space-between;
     max-width: 35.2rem;
     width: 100%;
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     flex: 1 0 100%;
 
     svg:first-of-type {
@@ -100,7 +100,7 @@ export const EquitySection = styled.section`
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     background: url(${ButtonBackground}), ${theme.colors.primaryDark};
 
     > h3 {
@@ -114,7 +114,7 @@ export const EquitySection = styled.section`
       width: 100%;
 
       > ul {
-        color: ${theme.colors.background};
+        color: ${theme.colors.label};
 
         li {
           display: flex;
@@ -147,7 +147,7 @@ export const LoanSection = styled(EquitySection)`
       > span {
         display: block;
         font-weight: 300;
-        color: ${theme.colors.background};
+        color: ${theme.colors.label};
       }
     }
 

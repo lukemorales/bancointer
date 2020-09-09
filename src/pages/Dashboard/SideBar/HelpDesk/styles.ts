@@ -9,7 +9,7 @@ export const AnimatedContainer = styled(motion.aside)`
     padding: 2rem 2.4rem;
     margin-top: 2.4rem;
     background: ${transparentize(0.92, theme.colors.grey)};
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     display: flex;
     align-items: center;
 

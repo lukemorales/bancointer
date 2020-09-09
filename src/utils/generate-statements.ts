@@ -2,7 +2,7 @@ import faker from 'faker';
 
 import generateMonthsInterval from './generate-months-interval';
 
-import theme from '~/styles/theme';
+import theme from '~/styles/themes/light';
 
 export type GeneratedStatement = {
   month: string;

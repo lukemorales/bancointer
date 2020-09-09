@@ -11,7 +11,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: ${theme.radius.small};
+    border-radius: ${theme.radii.small};
 
     svg {
       stroke-width: 1.5;
