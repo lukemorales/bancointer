@@ -23,8 +23,8 @@ export const AnimatedDropdown = styled(motion.nav)`
     z-index: 10;
     top: 128%;
     right: 0;
-    min-width: 14.2rem;
-    border-radius: ${theme.radius.small};
+    min-width: 14.6rem;
+    border-radius: ${theme.radii.small};
     background: ${theme.colors.lightGrey};
     box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.12);
 
@@ -32,7 +32,7 @@ export const AnimatedDropdown = styled(motion.nav)`
       content: '';
       display: block;
       position: absolute;
-      top: -33%;
+      top: -18%;
       right: 11%;
       border-color: ${`transparent transparent ${theme.colors.lightGrey} transparent `};
       border-style: solid;
@@ -41,7 +41,7 @@ export const AnimatedDropdown = styled(motion.nav)`
   `}
 `;
 
-export const LogOutButton = styled(Button)`
+export const NavButton = styled(Button)`
   ${({ theme }) => css`
     width: 100%;
     padding: 1.2rem 1.6rem;
@@ -51,6 +51,14 @@ export const LogOutButton = styled(Button)`
 
     :hover {
       background: ${theme.colors.background};
+    }
+
+    :first-child {
+      border-radius: ${theme.radii.smallTop};
+    }
+
+    :last-child {
+      border-radius: ${theme.radii.smallBottom};
     }
   `}
 `;
