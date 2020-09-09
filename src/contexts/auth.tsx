@@ -1,13 +1,6 @@
-import React, {
-  createContext,
-  useState,
-  useCallback,
-  useContext,
-  useEffect,
-} from 'react';
+import React, { createContext, useState, useCallback, useContext } from 'react';
 
-import useLocalStorage from '~/hooks/useLocalStorage';
-import { generateAccountData } from '~/utils';
+import { generateAccountData, storageKey } from '~/utils';
 import { AccountData } from '~/utils/generate-account-data';
 
 interface AuthState {
@@ -25,22 +18,30 @@ interface AuthContext {
 const AuthContext = createContext<AuthContext | null>(null);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [data, setData] = useState<AuthState>({} as AuthState);
-  const [storedUser, setStoredUser] = useLocalStorage<string | null>('user');
+  const [data, setData] = useState<AuthState>(() => {
+    const storedUser = localStorage.getItem(storageKey('user'));
 
-  const signIn = useCallback(
-    (name) => {
-      setStoredUser(name);
+    if (storedUser) {
+      const userName = JSON.parse(storedUser);
 
-      setData({ signed: true, account: generateAccountData(name) });
-    },
-    [setStoredUser],
-  );
+      return {
+        signed: true,
+        account: generateAccountData(userName),
+      };
+    }
+
+    return {} as AuthState;
+  });
+
+  const signIn = useCallback((name) => {
+    localStorage.setItem(storageKey('user'), JSON.stringify(name));
+    setData({ signed: true, account: generateAccountData(name) });
+  }, []);
 
   const signOut = useCallback(() => {
-    setStoredUser(null);
     setData({} as AuthState);
-  }, [setStoredUser]);
+    localStorage.removeItem(storageKey('user'));
+  }, []);
 
   const value = React.useMemo(
     () => ({
@@ -51,12 +52,6 @@ export const AuthProvider: React.FC = ({ children }) => {
     }),
     [data, signIn, signOut],
   );
-
-  useEffect(() => {
-    if (storedUser) {
-      setData({ signed: true, account: generateAccountData(storedUser) });
-    }
-  }, []); // eslint-disable-line
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
