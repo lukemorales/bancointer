@@ -9,7 +9,7 @@ const variants = {
 
     :hover {
       background: ${({ theme }) => theme.colors.secondary};
-      color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.label};
     }
   `,
   transparent: css`
@@ -25,7 +25,7 @@ export const Container = styled.button<ButtonProps>`
     background: ${background || theme.colors.background};
     border: 0;
     padding: 0.8rem 2.4rem;
-    border-radius: ${theme.radius.small};
+    border-radius: ${theme.radii.small};
     color: ${color || theme.colors.secondary};
     transition: ${theme.transition.default};
 

@@ -13,7 +13,7 @@ export const AnimatedContainer = styled(motion.main)`
     max-width: 36rem;
     padding: 3.2rem;
     background: ${theme.colors.background};
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     box-shadow: ${theme.shadows.default};
 
     h1 svg {
@@ -45,7 +45,7 @@ export const Form = styled.form`
         width: 100%;
         padding: 0.8rem 1.2rem;
         border: 0;
-        border-radius: ${theme.radius.small};
+        border-radius: ${theme.radii.small};
         background: ${transparentize(0.92, theme.colors.grey)};
         color: ${theme.colors.darkGrey};
 
@@ -61,7 +61,7 @@ export const SignInButton = styled(Button)`
   ${({ theme }) => css`
     width: 100%;
     margin-top: 1.2rem;
-    color: ${theme.colors.background};
+    color: ${theme.colors.label};
     background: ${`linear-gradient(90deg, ${theme.colors.secondary} 0%, ${theme.colors.primary} 100%)`};
     transition: 300ms ease-in-out;
 

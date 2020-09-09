@@ -46,7 +46,7 @@ export const AnimatedCard = styled(motion.button)`
     align-items: center;
     background: ${theme.colors.background};
     color: ${theme.colors.grey};
-    border-radius: ${theme.radius.default};
+    border-radius: ${theme.radii.default};
     padding: 1.6rem;
     box-shadow: ${theme.shadows.default};
     font-size: ${theme.fontSizes.default};
