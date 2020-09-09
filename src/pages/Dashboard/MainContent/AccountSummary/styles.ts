@@ -5,19 +5,17 @@ import { Theme } from '~/styles/styled';
 
 export const AnimatedContainer = styled(motion.section)`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 2.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-gap: 2.4rem;
   margin: 2.4rem 0;
-  max-height: 17.6rem;
-  height: 100%;
 `;
 
 export const AnimatedCard = styled(motion.article)`
   ${({ theme }) => css`
     background: ${theme.colors.background};
-    max-width: 26.4rem;
     width: 100%;
     height: 100%;
+    min-height: 17.6rem;
     border-radius: ${theme.radii.default};
     padding: 1.6rem 2.4rem;
     box-shadow: ${theme.shadows.flat};
