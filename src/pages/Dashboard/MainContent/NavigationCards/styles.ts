@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 export const AnimatedContainer = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
-    height: 100%;
-    max-height: 12rem;
+    min-height: 12rem;
+    height: auto;
     display: flex;
+    flex-shrink: 0;
 
     > button:last-child {
       margin: 0 0 2.4rem 2.4rem;
@@ -30,14 +31,14 @@ export const AnimatedContainer = styled(motion.div)`
 
 export const Navigation = styled.nav`
   display: grid;
-  grid-template-columns: repeat(6, minmax(10.4rem, 1fr));
-  column-gap: 0.8rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-gap: 0.8rem;
 `;
 
 export const AnimatedCard = styled(motion.button)`
   ${({ theme }) => css`
-    max-width: 12rem;
-    max-height: 12rem;
+    min-height: 12rem;
     width: 100%;
     height: 100%;
     display: flex;
