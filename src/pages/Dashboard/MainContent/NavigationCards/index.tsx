@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { FiArrowRight } from 'react-icons/fi';
-
 import { AnimatedContainer, AnimatedCard, Navigation } from './styles';
 import { CONTAINER_ANIMATION, CARDS_ANIMATION } from './animation';
 
-import Button from '~/components/Button';
 import { DEFAULT_TRANSITION, CARDS_NAVIGATION } from '~/constants';
 
 const NavigationCards: React.FC = () => {
@@ -26,9 +23,6 @@ const NavigationCards: React.FC = () => {
           </AnimatedCard>
         ))}
       </Navigation>
-      <Button>
-        <FiArrowRight />
-      </Button>
     </AnimatedContainer>
   );
 };
