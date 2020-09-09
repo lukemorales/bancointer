@@ -12,17 +12,31 @@ export const AnimatedContainer = styled(motion.section)`
     border-radius: ${theme.radii.default};
     box-shadow: ${theme.shadows.flat};
     padding: 2.4rem;
-    max-height: 34.2rem;
-    height: 100%;
     width: 100%;
 
     > div {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
       + div {
         margin-top: 2.4rem;
-        height: 100%;
+        display: grid;
+        grid-gap: 2.4rem;
+        grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+        min-height: 18.4rem;
+      }
+    }
+
+    @media (max-width: 940px) {
+      > div:first-child {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 400px) {
+      > div + div {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
       }
     }
   `}
@@ -35,7 +49,6 @@ export const ShoppingButton = styled(ButtonContainer)`
     max-width: 35.2rem;
     width: 100%;
     border-radius: ${theme.radii.default};
-    flex: 1 0 100%;
 
     svg:first-of-type {
       margin-left: 1.6rem;
@@ -54,13 +67,32 @@ export const ShoppingButton = styled(ButtonContainer)`
         font-size: ${theme.fontSizes.large};
       }
     }
+
+    @media (max-width: 940px) {
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 670px) {
+      svg:first-of-type {
+        margin-left: 0;
+      }
+
+      > div {
+        margin-left: 0rem;
+      }
+    }
   `}
 `;
 
 export const Products = styled(Navigation)`
-  flex-grow: 0;
-  grid-template-columns: repeat(5, minmax(6.4rem, 1fr));
+  flex: 1;
+  grid-template-columns: repeat(auto-fit, minmax(6.4rem, 1fr));
   margin: 0 -0.8rem 0 0.8rem;
+
+  @media (max-width: 940px) {
+    margin: 0;
+  }
 `;
 
 export const ProductCard = styled(AnimatedCard)`
@@ -68,7 +100,12 @@ export const ProductCard = styled(AnimatedCard)`
     box-shadow: none;
     background: none;
     font-size: ${theme.fontSizes.small};
+    min-height: 8.8rem;
     padding: 0;
+
+    > * {
+      flex-shrink: 0;
+    }
 
     > div {
       margin-bottom: auto;
@@ -88,12 +125,12 @@ export const ProductCard = styled(AnimatedCard)`
   `}
 `;
 
-export const EquitySection = styled.section`
+export const EquitySection = styled.article`
   ${({ theme }) => css`
     padding: 1.6rem 2.4rem;
-    max-width: 38.4rem;
     width: 100%;
     max-height: 18.4rem;
+    min-height: 16rem;
     height: 100%;
     color: ${theme.colors.yellow};
     display: flex;
@@ -109,6 +146,7 @@ export const EquitySection = styled.section`
 
     > div {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-end;
       width: 100%;
@@ -133,6 +171,22 @@ export const EquitySection = styled.section`
         font-weight: 700;
         padding: 0.8rem 1.6rem;
       }
+    }
+
+    @media (max-width: 440px) {
+      > div {
+        flex-direction: column;
+        align-items: flex-start;
+
+        > button {
+          width: 100%;
+          margin-top: 0.8rem;
+        }
+      }
+    }
+
+    @media (max-width: 348px) {
+      max-height: unset;
     }
   `}
 `;
