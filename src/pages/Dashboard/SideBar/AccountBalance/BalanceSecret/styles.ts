@@ -7,7 +7,7 @@ export const AnimatedContainer = styled(motion.span)`
     max-width: 10rem;
     height: 2rem;
     background: ${theme.colors.greyLowerOpacity};
-    border-radius: ${theme.radius.tiny};
+    border-radius: ${theme.radii.tiny};
     position: absolute;
     z-index: 2;
   `}

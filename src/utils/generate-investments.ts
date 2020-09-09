@@ -3,7 +3,7 @@ import faker from 'faker';
 import generateMonthsInterval from './generate-months-interval';
 import formatCurrency from './format-currency';
 
-import theme from '~/styles/theme';
+import theme from '~/styles/themes/light';
 
 export type InvestmentTimeline = {
   x: string;
