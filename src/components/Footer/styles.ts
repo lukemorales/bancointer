@@ -17,7 +17,7 @@ export const AnimatedContainer = styled(motion.footer)`
 export const Wrapper = styled(HeaderWrapper)`
   ${({ theme }) => css`
     height: auto;
-    padding: 1.6rem 0;
+    padding: 1.6rem;
     align-items: center;
 
     h4 {
@@ -37,6 +37,11 @@ export const Wrapper = styled(HeaderWrapper)`
     > img {
       margin-top: 1.6rem;
     }
+
+    @media (max-width: 568px) {
+      flex-direction: column;
+      text-align: center;
+    }
   `}
 `;
 
@@ -47,7 +52,7 @@ export const FooterSection = styled(AnimatedContainer)<{ background?: string }>`
 
     :last-of-type {
       ${Wrapper} {
-        padding: 2.4rem 0;
+        padding: 2.4rem 1.6rem;
       }
     }
   `}

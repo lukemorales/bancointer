@@ -12,9 +12,10 @@ export const AnimatedContainer = styled(motion.header)`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 113rem;
-  height: 10.4rem;
+  max-width: 116.2rem;
+  padding: 0 1.6rem;
   width: 100%;
+  height: 10.4rem;
   display: flex;
   justify-content: space-between;
 `;
@@ -40,4 +41,10 @@ export const AnimatedRightNav = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   flex: 1;
+
+  @media (max-width: 470px) {
+    > button {
+      display: none;
+    }
+  }
 `;

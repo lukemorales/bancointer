@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex: 1 100%;
   flex-direction: column;
+
+  @media (max-width: 670px) {
+    max-width: 100%;
+  }
 `;
 
 export const AnimatedContainer = styled(motion.section)`

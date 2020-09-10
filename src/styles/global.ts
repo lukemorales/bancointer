@@ -18,6 +18,7 @@ export default createGlobalStyle`
   }
 
   body {
+    height: auto;
     background: ${({ theme }) => theme.colors.lightGrey};
     color: ${({ theme }) => theme.colors.grey};
     text-rendering: optimizeLegibility !important;
@@ -27,11 +28,15 @@ export default createGlobalStyle`
 
   body, #root {
     min-height: 100vh;
-    height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
   }
+
+  #root {
+    height: 100%;
+  }
+
 
   body, input, button {
     font: 1.6rem 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
