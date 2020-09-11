@@ -11,7 +11,7 @@ import { ANIMATION } from './animations';
 import { BancoInter } from '~/assets/images';
 import useAuth from '~/contexts/auth';
 
-const Welcome: React.FC = () => {
+const Welcome = () => {
   const [inputValue, setInputValue] = useState('');
 
   const history = useHistory();

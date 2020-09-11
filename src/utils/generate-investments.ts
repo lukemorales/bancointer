@@ -16,14 +16,12 @@ export type GeneratedInvestment = {
   data: Array<InvestmentTimeline>;
 };
 
-export interface Investments {
+export type Investments = {
   amount: string;
   timeline: Array<GeneratedInvestment>;
-}
+};
 
-export interface GenerateInvestments {
-  (visible?: boolean): Investments;
-}
+export type GenerateInvestments = (visible?: boolean) => Investments;
 
 const generateInvestments: GenerateInvestments = (visible = true) => {
   const currentMonthsInterval = generateMonthsInterval();

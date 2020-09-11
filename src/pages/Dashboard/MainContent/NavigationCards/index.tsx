@@ -5,7 +5,7 @@ import { CONTAINER_ANIMATION, CARDS_ANIMATION } from './animation';
 
 import { DEFAULT_TRANSITION, CARDS_NAVIGATION } from '~/constants';
 
-const NavigationCards: React.FC = () => {
+const NavigationCards = () => {
   return (
     <AnimatedContainer variants={CONTAINER_ANIMATION}>
       <Navigation>

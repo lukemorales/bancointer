@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ButtonProps } from './Button';
+import { ButtonProps } from '.';
 
 const variants = {
   secondary: css`

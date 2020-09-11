@@ -7,7 +7,7 @@ import { CONTAINER_ANIMATION } from './animations';
 
 import NortonSecured from '~/assets/images/illustrations/norton-secured.svg';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const { colors } = useTheme();
 
   return (

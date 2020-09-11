@@ -18,7 +18,7 @@ const animation = {
   },
 };
 
-const SideBar: React.FC = () => {
+const SideBar  = () => {
   return (
     <Wrapper>
       <AnimatedContainer variants={animation}>

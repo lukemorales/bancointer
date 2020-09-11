@@ -1,17 +1,23 @@
-import React, { createContext, useState, useCallback, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useCallback,
+  useContext,
+  PropsWithChildren,
+} from 'react';
 
 import { storageKey } from '~/utils';
 
-type ThemeState = 'light' | 'dark';
+export type ThemeState = 'light' | 'dark';
 
-interface AppThemeContext {
+export type AppThemeContext = {
   currentTheme: ThemeState;
   toggleTheme(): void;
-}
+};
 
 const AppThemeContext = createContext<AppThemeContext | null>(null);
 
-export const AppThemeProvider: React.FC = ({ children }) => {
+export const AppThemeProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeState>(() => {
     const storedTheme = localStorage.getItem(storageKey('theme')) as ThemeState;
     return storedTheme ? JSON.parse(storedTheme) : 'light';

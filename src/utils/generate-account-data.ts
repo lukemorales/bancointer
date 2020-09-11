@@ -7,9 +7,7 @@ export type AccountData = {
   investments: Investments;
 };
 
-export interface GenerateAccountData {
-  (name: string): AccountData;
-}
+export type GenerateAccountData = (name: string) => AccountData;
 
 const generateAccountData: GenerateAccountData = (name) => ({
   user: { name },

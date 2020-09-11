@@ -17,7 +17,7 @@ import { BANK_PRODUCTS_ANIMATION } from './animations';
 import Button from '~/components/Button';
 import { BANK_PRODUCTS } from '~/constants';
 
-const BankProducts: React.FC = () => {
+const BankProducts = () => {
   const { colors } = useTheme();
 
   return (

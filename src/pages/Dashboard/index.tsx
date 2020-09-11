@@ -4,20 +4,14 @@ import { Container, AnimatedWrapper } from './styles';
 import SideBar from './SideBar';
 import MainContent from './MainContent';
 import DefaultLayout from '../_layouts/default';
+import { DASHBOARD_ANIMATION } from './animations';
 
-const animation = {
-  unMounted: { opacity: 0 },
-  mounted: {
-    opacity: 1,
-  },
-};
-
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   return (
     <DefaultLayout>
       <Container>
         <AnimatedWrapper
-          variants={animation}
+          variants={DASHBOARD_ANIMATION}
           initial="unMounted"
           animate="mounted"
           exit="unMounted"
