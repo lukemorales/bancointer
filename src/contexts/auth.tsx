@@ -1,23 +1,29 @@
-import React, { createContext, useState, useCallback, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useCallback,
+  useContext,
+  PropsWithChildren,
+} from 'react';
 
 import { generateAccountData, storageKey } from '~/utils';
 import { AccountData } from '~/utils/generate-account-data';
 
-interface AuthState {
+export type AuthState = {
   signed: boolean;
   account: AccountData;
-}
+};
 
-interface AuthContext {
+export type AuthContext = {
   signed: boolean;
   account: AccountData;
   signIn(name: string): void;
   signOut(): void;
-}
+};
 
 const AuthContext = createContext<AuthContext | null>(null);
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [data, setData] = useState<AuthState>(() => {
     const storedUser = localStorage.getItem(storageKey('user'));
 

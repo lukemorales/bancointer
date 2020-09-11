@@ -13,7 +13,7 @@ import useEventListener from '~/hooks/useEventListener';
 import { removeHashFromColor } from '~/utils';
 import useAppTheme from '~/contexts/theme';
 
-const AccountDropdown: React.FC = () => {
+const AccountDropdown = () => {
   const history = useHistory();
   const { account, signOut } = useAuth();
   const { currentTheme, toggleTheme } = useAppTheme();

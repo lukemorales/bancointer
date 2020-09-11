@@ -5,7 +5,7 @@ import NavigationCards from './NavigationCards';
 import AccountSummary from './AccountSummary';
 import BankProducts from './BankProducts';
 
-const MainContent: React.FC = () => {
+const MainContent = () => {
   return (
     <Container>
       <NavigationCards />

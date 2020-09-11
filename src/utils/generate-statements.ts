@@ -12,9 +12,9 @@ export type GeneratedStatement = {
   outcomeColor: string;
 };
 
-export interface GenerateStatements {
-  (visible?: boolean): Array<GeneratedStatement>;
-}
+export type GenerateStatements = (
+  visible?: boolean,
+) => Array<GeneratedStatement>;
 
 const generateStatements: GenerateStatements = (visible = true) => {
   const currentMonthsInterval = generateMonthsInterval();

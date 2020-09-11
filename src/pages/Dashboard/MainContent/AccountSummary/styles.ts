@@ -103,7 +103,7 @@ export const RightData = styled.div`
   `}
 `;
 
-type DataValueType = {
+export type DataValueType = {
   income?: boolean;
   outcome?: boolean;
 };
@@ -127,7 +127,7 @@ export const DataValue = styled.div<DataValueType>`
   `}
 `;
 
-type CustomTooltipProps = {
+export type CustomTooltipProps = {
   rightArrow?: boolean;
   leftArrow?: boolean;
 };

@@ -1,9 +1,7 @@
 import { eachMonthOfInterval, subMonths, format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-export interface GenerateMonthsInterval {
-  (): Array<string>;
-}
+export type GenerateMonthsInterval = () => Array<string>;
 
 const generateMonthsInterval: GenerateMonthsInterval = () => {
   const currentMonthsInterval = eachMonthOfInterval({

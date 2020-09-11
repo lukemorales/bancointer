@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { useTheme } from 'styled-components';
 
 import { AnimatedContainer } from './styles';
 
-export interface AuthLayoutProps {
+export type AuthLayoutProps = {
   background: string;
-}
+};
 
-const AuthLayout: React.FC<AuthLayoutProps> = ({ background, children }) => {
+const AuthLayout = (props: PropsWithChildren<AuthLayoutProps>) => {
+  const { background, children } = props;
   const { colors } = useTheme();
 
   return (

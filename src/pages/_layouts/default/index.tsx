@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 
-const DefaultLayout: React.FC = ({ children }) => {
+const DefaultLayout = ({ children }: PropsWithChildren<unknown>) => {
   return (
     <>
       <Header />

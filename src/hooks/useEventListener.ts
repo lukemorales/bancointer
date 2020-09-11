@@ -1,18 +1,16 @@
 /* eslint consistent-return: 0 */
 import { useEffect, useRef } from 'react';
 
-type EventListenerOptions = {
+export type EventListenerOptions = {
   enabled?: boolean;
   target?: GlobalEventHandlers;
 };
 
-interface EventListenerHook {
-  (
-    eventType: keyof GlobalEventHandlersEventMap,
-    handler: (event: Event | MouseEvent) => void,
-    option: EventListenerOptions,
-  ): void;
-}
+export type EventListenerHook = (
+  eventType: keyof GlobalEventHandlersEventMap,
+  handler: (event: Event | MouseEvent) => void,
+  option: EventListenerOptions,
+) => void;
 
 const useEventListener: EventListenerHook = (eventType, handler, options) => {
   const { enabled = true, target = document } = options || {};

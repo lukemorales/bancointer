@@ -10,7 +10,7 @@ import Button from '~/components/Button';
 import useAuth from '~/contexts/auth';
 import { formatCurrency } from '~/utils';
 
-const AccountBalance: React.FC = () => {
+const AccountBalance = () => {
   const { statements } = useAuth().account;
 
   const [isHidden, setIsHidden] = useState(true);
