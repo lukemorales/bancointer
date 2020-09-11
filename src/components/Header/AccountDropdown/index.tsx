@@ -48,7 +48,7 @@ const AccountDropdown = () => {
   });
 
   return (
-    <Container onMouseEnter={handleDropdownVisibility}>
+    <Container onClick={handleDropdownVisibility}>
       <img
         src={`https://ui-avatars.com/api/?rounded=true&format=svg&background=${removeHashFromColor(
           lightGrey,

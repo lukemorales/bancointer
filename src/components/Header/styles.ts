@@ -27,6 +27,7 @@ export const AnimatedLeftNav = styled(motion.div)`
   justify-content: center;
 
   > svg {
+    cursor: pointer;
     max-width: 11.2rem;
     height: auto;
     margin: 0 2.4rem 0.4rem -0.4rem;
