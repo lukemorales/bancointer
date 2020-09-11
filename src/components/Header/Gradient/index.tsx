@@ -5,7 +5,6 @@ import { GRADIENT_ANIMATION } from './animations';
 
 const Gradient = () => (
   <AnimatedContainer
-    layout
     variants={GRADIENT_ANIMATION}
     initial="unMounted"
     animate="mounted"

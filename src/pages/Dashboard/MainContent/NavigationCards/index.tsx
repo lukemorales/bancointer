@@ -11,7 +11,6 @@ const NavigationCards = () => {
       <Navigation>
         {Object.entries(CARDS_NAVIGATION).map(([key, value]) => (
           <AnimatedCard
-            layout
             key={`card-${key}`}
             variants={CARDS_ANIMATION}
             transition={DEFAULT_TRANSITION}

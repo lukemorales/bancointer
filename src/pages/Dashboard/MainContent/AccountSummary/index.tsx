@@ -51,7 +51,6 @@ const AccountSummary = () => {
   return (
     <AnimatedContainer variants={CONTAINER_ANIMATION}>
       <AnimatedCard
-        layout
         key="statement"
         variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
@@ -134,7 +133,6 @@ const AccountSummary = () => {
         </DataWrapper>
       </AnimatedCard>
       <AnimatedCard
-        layout
         key="credit-card"
         variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
@@ -157,7 +155,6 @@ const AccountSummary = () => {
         </DataWrapper>
       </AnimatedCard>
       <AnimatedCard
-        layout
         key="investments"
         variants={CARDS_ANIMATION}
         transition={DEFAULT_TRANSITION}
