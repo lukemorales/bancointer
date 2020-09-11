@@ -5,14 +5,6 @@
   "dependencies": {
     "@nivo/bar": "^0.62.0",
     "@nivo/line": "^0.62.0",
-    "@testing-library/jest-dom": "^5.11.2",
-    "@testing-library/react": "^10.4.7",
-    "@testing-library/user-event": "^12.0.17",
-    "@types/jest": "^26.0.7",
-    "@types/node": "^14.0.27",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "babel-plugin-root-import": "^6.5.0",
     "customize-cra": "^1.0.0",
     "date-fns": "^2.16.1",
     "faker": "^5.1.0",
@@ -24,8 +16,7 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "styled-components": "^5.1.1",
-    "typescript": "~3.9.7"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -50,6 +41,14 @@
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.7",
+    "@testing-library/user-event": "^12.0.17",
+    "babel-plugin-root-import": "^6.5.0",
+    "@types/jest": "^26.0.7",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/faker": "^4.1.12",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.1",
@@ -67,6 +66,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "prettier": "^2.0.5",
-    "react-refresh": "^0.8.3"
+    "react-refresh": "^0.8.3",
+    "typescript": "~3.9.7"
   }
 }
