@@ -19,7 +19,6 @@ const BalanceSecret = ({ setIsValueVisible }: BalanceSecretProps) => {
   return (
     <AnimatedContainer
       key="balance-secret"
-      layout
       variants={SHOW_SECRET_ANIMATION}
       initial={false}
       animate="visible"

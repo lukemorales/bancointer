@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import {
   AnimatedContainer,
   Wrapper,
@@ -14,8 +12,11 @@ import Button from '../Button';
 import { CONTAINER_ANIMATION, NAVS_ANIMATION } from './animations';
 
 import { BancoInter } from '~/assets/images';
+import useAuth from '~/contexts/auth';
 
 const Header = () => {
+  const { signOut } = useAuth();
+
   return (
     <AnimatedContainer
       variants={CONTAINER_ANIMATION}
@@ -25,9 +26,7 @@ const Header = () => {
     >
       <Wrapper>
         <AnimatedLeftNav variants={NAVS_ANIMATION}>
-          <Link to="/">
-            <BancoInter />
-          </Link>
+          <BancoInter onClick={signOut} />
           Internet Banking
         </AnimatedLeftNav>
         <AnimatedRightNav variants={NAVS_ANIMATION}>
