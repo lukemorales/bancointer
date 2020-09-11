@@ -1,3 +1,3 @@
-const removeHashFromColor = (color: string): string => color.slice(1);
+const removeHashFromColor = (color: string) => color.slice(1);
 
 export default removeHashFromColor;

@@ -8,7 +8,7 @@ import { HELPDESK_ANIMATION } from './animations';
 import BabiHelpDesk from '~/assets/images/illustrations/babi.png';
 import useAuth from '~/contexts/auth';
 
-const HelpDesk: React.FC = () => {
+const HelpDesk = () => {
   const { user } = useAuth().account;
 
   return (

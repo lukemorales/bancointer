@@ -8,7 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import Welcome from '~/pages/Welcome';
 import Dashboard from '~/pages/Dashboard';
 
-const Routes: React.FC = () => {
+const Routes = () => {
   const location = useLocation();
   const { pathname } = location;
 

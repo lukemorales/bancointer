@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { AnimatedContainer } from './styles';
 import { GRADIENT_ANIMATION } from './animations';
 
-const Gradient: React.FC = () => (
+const Gradient = () => (
   <AnimatedContainer
     layout
     variants={GRADIENT_ANIMATION}

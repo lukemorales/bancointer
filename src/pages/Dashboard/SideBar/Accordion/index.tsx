@@ -4,12 +4,12 @@ import { FiChevronDown } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-export interface AccordionProps {
+export type AccordionProps = {
   icon: React.ReactNode;
   sectionName: string;
-}
+};
 
-const Accordion: React.FC<AccordionProps> = ({ icon, sectionName }) => {
+const Accordion = ({ icon, sectionName }: AccordionProps) => {
   return (
     <Container variant="transparent">
       <div>{icon}</div>

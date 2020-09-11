@@ -32,7 +32,7 @@ import {
 const hiddenStatements = generateStatements(false);
 const hiddenInvestments = generateInvestments(false).timeline;
 
-const AccountSummary: React.FC = () => {
+const AccountSummary = () => {
   const { statements, investments } = useAuth().account;
   const { colors } = useTheme();
 

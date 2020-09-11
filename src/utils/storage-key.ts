@@ -1,3 +1,3 @@
-const storageKey = (key: string): string => `@BancoInterRedesign:${key}`;
+const storageKey = (key: string) => `@BancoInterRedesign:${key}`;
 
 export default storageKey;

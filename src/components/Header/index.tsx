@@ -15,7 +15,7 @@ import { CONTAINER_ANIMATION, NAVS_ANIMATION } from './animations';
 
 import { BancoInter } from '~/assets/images';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <AnimatedContainer
       variants={CONTAINER_ANIMATION}

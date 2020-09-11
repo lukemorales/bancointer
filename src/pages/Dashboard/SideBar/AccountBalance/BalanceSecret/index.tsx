@@ -5,11 +5,11 @@ import { usePresence } from 'framer-motion';
 import { SHOW_SECRET_ANIMATION } from './animations';
 import { AnimatedContainer } from './styles';
 
-export interface BalanceSecretProps {
+export type BalanceSecretProps = {
   setIsValueVisible: Dispatch<SetStateAction<boolean>>;
-}
+};
 
-const BalanceSecret: React.FC<BalanceSecretProps> = ({ setIsValueVisible }) => {
+const BalanceSecret = ({ setIsValueVisible }: BalanceSecretProps) => {
   const [isPresent] = usePresence();
 
   useEffect(() => {

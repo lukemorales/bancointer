@@ -4,14 +4,11 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 
 import useAuth from '~/contexts/auth';
 
-interface PrivateRouteProps extends RouteProps {
+export interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({
-  component: Component,
-  ...rest
-}) => {
+const PrivateRoute = ({ component: Component, ...rest }: PrivateRouteProps) => {
   const { signed } = useAuth();
 
   if (!signed) {

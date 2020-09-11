@@ -9,7 +9,7 @@ import GlobalStyles from './styles/global';
 import { AuthProvider } from './contexts/auth';
 import useAppTheme from './contexts/theme';
 
-const App: React.FC = () => {
+const App = () => {
   const { currentTheme } = useAppTheme();
 
   return (
